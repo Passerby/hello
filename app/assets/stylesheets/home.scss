@@ -1,3 +1,25 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-search{
+	text-align:center;
+	padding: 30px 10px;
+	background-color:#eee;
+	margin-bottom:40px;
+	.form-control{
+		padding-left:50px
+	}
+	.fa{
+		left:0;
+		font-size:1.5em;
+		color:#ccc;
+	}
+	.btn{ width:130px;}
+	.form-group, .form-control{
+		width:100%;
+	}
+}
+
+/*login*/
+.login-b{
+	border:solid 1px #ddd;
+	padding:10px 30px;
+	height:340px;
+}

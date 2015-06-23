@@ -33,6 +33,7 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
     <%= javascript_include_tag "application" %>
   </head>
 
@@ -64,50 +65,9 @@
         </div>
       </div>
     </div>
-
-<div class='main-search'>
-  <div class='container'>
-<form role="form" class="form-inline"> 
-
-<div class="row">
-  <div class="col-md-5">
-      <div class="form-group has-feedback has-feedback-left">
-    <label class="control-label sr-only">Position</label>
-    <div class="inline-feedback">
-      <input type="text" class="form-control input-lg" placeholder="Position" />
-      <i class="form-control-feedback fa fa-search"></i>
-    </div>
-  </div>
-  </div>
-  <div class="col-md-5">
-    <div class="form-group has-feedback has-feedback-left">
-    <label class="control-label sr-only">Location</label>
-    <div class="inline-feedback">
-      <input type="text" class="form-control input-lg" placeholder="Location" />
-      <i class="form-control-feedback fa fa-map-marker"></i>
-    </div>
-  </div>
-  </div>
-  <div class="col-md-2">
-    <button type="submit" class="btn btn-primary btn-lg">Search</button>
-  </div>
-</div>
-
-</form>
-</div>
-</div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
           <%= bootstrap_flash %>
           <%= yield %>
-
-        </div>
-
-      </div><!--/row-->
-    </div> <!-- /container -->
-          <footer class='footer'>
+      <footer class='footer'>
      <div class="container">
         <table class="hp-foot-nav">
           <tr>
@@ -118,6 +78,32 @@
             <td width="20%"><%= link_to t('navAbout'), "/#"  %></td>
           </tr>
         </table>
+
+        <div class="row">
+          <div class="col-md-4 col-sm-offset-1">
+            <%= content_tag(:div, t('news'), class:'hp-footer-title')%>
+            <ul class="list-unstyled">
+              <li>2015美国IT行业预测：更多机会，更高收入</li>
+              <li>面试薪资谈低了被录谈低</li>
+              <li>走好海外工作的第一步，你准备好了吗</li>
+              <li>失业四个月，要不要..</li>
+              <li>公司只看简历不给面公司只看简历不给面.</li>
+
+            </ul>
+          </div>
+          <div class="col-md-3 footer-weixin-wrapper">
+            <%= content_tag(:div, t('weixin'), class:'hp-footer-title')%>
+            <%= image_tag("weixin.jpg", class:'hp-footer-weixin')%> 
+          </div>
+          <div class="col-md-4">
+            <%= content_tag(:div, t('contactUs'), class:'hp-footer-title')%>
+            <%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('telVal'), class:'hp-footer-val')%>
+            <%= content_tag(:div, t('email'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('emailVal'), class:'hp-footer-val')%>
+            <%= content_tag(:div, t('addr'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('addrVal'), class:'hp-footer-val')%>
+          </div>
         </div>
       </div>
       </footer>

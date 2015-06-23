@@ -1,29 +1,69 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-default">
+  <div class="panel-heading">Sign up</div>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, 
+  :html => {:class => 'form-horizontal'},
+url: registration_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="form-group">
+    <%= f.label :email, :class=>'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.email_field :email, autofocus: true, :class=>'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+  <div class="form-group">
+    <%= f.label :password,:class=>'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+    <%= f.password_field :password, autocomplete: "off", :class=>'form-control' %>
+        <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class=>'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+  <%= f.password_field :password_confirmation, autocomplete: "off", :class=>'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit "Sign up", :class=>'btn btn-primary' %>
+    </div>
   </div>
+
 <% end %>
+  </div><!--end panel body-->
+</div><!--end panel-->
+  </div>
+  <div class="col-md-3">
+    <div class="panel panel-default">
+  <div class="panel-heading">快速登录</div>
+  <div class="panel-body">
+    <ul>
+      <li>QQ</li>
+      <li>Weixin</li>
+      <li>Weibo</li>
+      <li>Linkin</li>
+    </ul>
+  </div>
+</div>
 
-<%= render "users/shared/links" %>
+  </div>
+</div>
+
+
+
+
+
+
+
+

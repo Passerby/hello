@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :jobs
   resources :companies
   devise_for :jobposters
   resources :companies
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
       resources :provinces
     end
   end
-  devise_for :jobseekers
   devise_for :users
   get 'home/index'
 

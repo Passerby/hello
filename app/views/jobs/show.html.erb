@@ -1,0 +1,27 @@
+
+<div class="page-header">
+  <h1><%=@job.title %></h1>
+</div>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <%= content_tag(:span, t('salary'), class:'value-desc')%> <%= @job.salary %></div>
+  <div class="col-md-4">
+    <%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(@job.city_id).name %>
+  </div>
+</div>
+
+<%= content_tag(:div, t('jobDesc'), class:'jd-val-desc')%>
+<%= sanitize @job.description.gsub(/\n/, '<br/>') %>
+
+<%= content_tag(:div, t('jobReq'), class:'jd-val-desc')%>
+<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %>
+
+<%= content_tag(:div, t('jobComment'), class:'jd-val-desc')%>
+<%= sanitize @job.comment.gsub(/\n/, '<br/>') %>
+
+<br/><br/>
+<%= link_to t('apply'), '#', :class=>'btn btn-primary btn-lg' %>
+
+

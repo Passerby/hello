@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623153818) do
+ActiveRecord::Schema.define(version: 20150623155303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,24 @@ ActiveRecord::Schema.define(version: 20150623153818) do
   add_index "jobposters", ["email"], name: "index_jobposters_on_email", unique: true, using: :btree
   add_index "jobposters", ["reset_password_token"], name: "index_jobposters_on_reset_password_token", unique: true, using: :btree
 
+  create_table "jobs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "salary"
+    t.text     "description"
+    t.text     "requirement"
+    t.text     "comment"
+    t.date     "endDate"
+    t.integer  "admin_setting_city_id"
+    t.integer  "company_id"
+    t.integer  "jobposter_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "jobs", ["admin_setting_city_id"], name: "index_jobs_on_admin_setting_city_id", using: :btree
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+  add_index "jobs", ["jobposter_id"], name: "index_jobs_on_jobposter_id", using: :btree
+
   create_table "jobseekers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -121,4 +139,7 @@ ActiveRecord::Schema.define(version: 20150623153818) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "companies", "jobposters"
+  add_foreign_key "jobs", "admin_setting_cities"
+  add_foreign_key "jobs", "companies"
+  add_foreign_key "jobs", "jobposters"
 end

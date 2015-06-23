@@ -1,0 +1,66 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh:
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+
+    day_names: [星期日, 星期一, 星期二, 星期三, 星期四, 星期五, 星期六]
+    abbr_day_names: [日, 一, 二, 三, 四, 五, 六]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, 一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    # 使用於 date_select 與 datime_select.
+    order: [ year, month, day ]
+  navHome : "首页"
+  navAlljob: "职位"
+  navService: "服务"
+  navCase: "客户说"
+  navAbout: "关于我们"
+
+  register: "注册"
+  login: "登录"
+
+  jobTitle: "职位名称："
+  salary: "薪酬："
+  city: "地点："
+
+  news: "资讯"
+  weixin: "微信"
+  contactUs: "联系我们"
+  tel: "电话："
+  telVal: "021-6049-1675"
+  email: "Email："
+  emailVal: "service@hellocareer.cn"
+  addr: "地址："
+  addrVal: "上海市长宁区安化路492号A座102室"
+
+  jobDesc: "职位描述"
+  jobReq: "职位要求"
+  jobComment: "顾问推荐"
+  apply: "投个简历"
