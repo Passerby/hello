@@ -8,7 +8,7 @@
   <div class="col-md-4">
     <%= content_tag(:span, t('salary'), class:'value-desc')%> <%= @job.salary %></div>
   <div class="col-md-4">
-    <%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(@job.city_id).name %>
+    <%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(@job).name %>
   </div>
 </div>
 

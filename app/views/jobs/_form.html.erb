@@ -60,7 +60,7 @@
   <div class="control-group">
     <%= f.label :city_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select(:city_id, Admin::Setting::City.all, :id, :name,{}, {:class => 'form-control'}) %>
+      <%= f.collection_select(:admin_setting_city_id, Admin::Setting::City.all, :id, :name,{}, {:class => 'form-control'}) %>
     </div>
     <%= error_span(@job[:city_id]) %>
   </div>
