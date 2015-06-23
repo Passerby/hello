@@ -1,6 +1,6 @@
 class Admin::Setting::IndustriesController < ApplicationController
   before_action :set_admin_setting_industry, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_jobposter!
   # GET /admin/setting/industries
   # GET /admin/setting/industries.json
   def index

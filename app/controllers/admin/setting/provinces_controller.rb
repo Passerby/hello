@@ -1,6 +1,6 @@
 class Admin::Setting::ProvincesController < ApplicationController
   before_action :set_admin_setting_province, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_jobposter!
   # GET /admin/setting/provinces
   # GET /admin/setting/provinces.json
   def index

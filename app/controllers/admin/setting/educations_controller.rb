@@ -1,6 +1,6 @@
 class Admin::Setting::EducationsController < ApplicationController
   before_action :set_admin_setting_education, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_jobposter!
   # GET /admin/setting/educations
   # GET /admin/setting/educations.json
   def index
