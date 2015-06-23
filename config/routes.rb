@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'p/service'
+
+  get 'p/case'
+
+  get 'p/about'
+
   resources :jobs
   resources :companies
   devise_for :jobposters

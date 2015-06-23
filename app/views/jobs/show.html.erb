@@ -20,8 +20,12 @@
 
 <%= content_tag(:div, t('jobComment'), class:'jd-val-desc')%>
 <%= sanitize @job.comment.gsub(/\n/, '<br/>') %>
-
-<br/><br/>
+<% if jobposter_signed_in? %>
+<div class="pull-right"><%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %></div>
+<% end %>
+<br/>
+<br/>
 <%= link_to t('apply'), '#', :class=>'btn btn-primary btn-lg' %>
 
 

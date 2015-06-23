@@ -57,9 +57,9 @@
           <ul class="nav navbar-nav">
             <li><%= link_to t('navHome'), "/"  %></li>
             <li><%= link_to t('navAlljob'), jobs_path  %></li>
-            <li><%= link_to t('navService'), "#"  %></li>
-            <li><%= link_to t('navCase'), "/#"  %></li>
-            <li><%= link_to t('navAbout'), "/#"  %></li>
+            <li><%= link_to t('navService'),:controller => "p", :action => "service"%></li>
+            <li><%= link_to t('navCase'),:controller => "p", :action => "case" %></li>
+            <li><%= link_to t('navAbout'), :controller => "p", :action => "about"  %></li>
           </ul>
         </div>
       </div>
@@ -113,9 +113,9 @@
           <tr>
             <td width="20%"><%= link_to t('navHome'), "/"  %></td>
             <td width="20%"><%= link_to t('navAlljob'), jobs_path  %></td>
-            <td width="20%"><%= link_to t('navService'), "#"  %></td>
-            <td width="20%"><%= link_to t('navCase'), "/#"  %></td>
-            <td width="20%"><%= link_to t('navAbout'), "/#"  %></td>
+            <td width="20%"><%= link_to t('navService'),:controller => "p", :action => "service"%></td>
+            <td width="20%"><%= link_to t('navCase'), :controller => "p", :action => "case"  %></td>
+            <td width="20%"><%= link_to t('navAbout'), :controller => "p", :action => "about" %></td>
           </tr>
         </table>
         </div>
