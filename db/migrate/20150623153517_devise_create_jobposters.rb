@@ -1,6 +1,6 @@
-class DeviseCreateJobseekers < ActiveRecord::Migration
+class DeviseCreateJobposters < ActiveRecord::Migration
   def change
-    create_table(:jobseekers) do |t|
+    create_table(:jobposters) do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -34,9 +34,9 @@ class DeviseCreateJobseekers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :jobseekers, :email,                unique: true
-    add_index :jobseekers, :reset_password_token, unique: true
-    # add_index :jobseekers, :confirmation_token,   unique: true
-    # add_index :jobseekers, :unlock_token,         unique: true
+    add_index :jobposters, :email,                unique: true
+    add_index :jobposters, :reset_password_token, unique: true
+    # add_index :jobposters, :confirmation_token,   unique: true
+    # add_index :jobposters, :unlock_token,         unique: true
   end
 end

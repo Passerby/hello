@@ -1,0 +1,31 @@
+<%= form_for(@admin_setting_city) do |f| %>
+  <% if @admin_setting_city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_setting_city.errors.count, "error") %> prohibited this admin_setting_city from being saved:</h2>
+
+      <ul>
+      <% @admin_setting_city.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :pinyin %><br>
+    <%= f.text_field :pinyin %>
+  </div>
+    <div class="field">
+    <%= f.label :admin_setting_province_id %><br>
+
+ <%= f.collection_select(:admin_setting_province_id, Admin::Setting::Province.all, :id, :name) %>
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%= form_for(@admin_setting_experience) do |f| %>
+  <% if @admin_setting_experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_setting_experience.errors.count, "error") %> prohibited this admin_setting_experience from being saved:</h2>
+
+      <ul>
+      <% @admin_setting_experience.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

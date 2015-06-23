@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_setting_city.name %>
+</p>
+
+<p>
+  <strong>Pinyin:</strong>
+  <%= @admin_setting_city.pinyin %>
+</p>
+
+<%= link_to 'Edit', edit_admin_setting_city_path(@admin_setting_city) %> |
+<%= link_to 'Back', admin_setting_cities_path %>

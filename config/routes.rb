@@ -1,4 +1,37 @@
 Rails.application.routes.draw do
+  resources :companies
+  devise_for :jobposters
+  resources :companies
+  namespace :admin do
+    namespace :setting do
+      resources :job_titles
+    end
+  end
+  namespace :admin do
+    namespace :setting do
+      resources :industries
+    end
+  end
+  namespace :admin do
+    namespace :setting do
+      resources :experiences
+    end
+  end
+  namespace :admin do
+    namespace :setting do
+      resources :educations
+    end
+  end
+  namespace :admin do
+    namespace :setting do
+      resources :cities
+    end
+  end
+  namespace :admin do
+    namespace :setting do
+      resources :provinces
+    end
+  end
   devise_for :jobseekers
   devise_for :users
   get 'home/index'

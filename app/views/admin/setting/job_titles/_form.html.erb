@@ -1,0 +1,27 @@
+<%= form_for(@admin_setting_job_title) do |f| %>
+  <% if @admin_setting_job_title.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_setting_job_title.errors.count, "error") %> prohibited this admin_setting_job_title from being saved:</h2>
+
+      <ul>
+      <% @admin_setting_job_title.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_setting_industy_id %><br>
+    <%= f.text_field :admin_setting_industry_id %>
+     <%= f.collection_select(:admin_setting_industry_id, Admin::Setting::Industry.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

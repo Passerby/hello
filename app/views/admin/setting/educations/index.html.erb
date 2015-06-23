@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Setting Educations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_setting_educations.each do |admin_setting_education| %>
+      <tr>
+        <td><%= admin_setting_education.name %></td>
+        <td><%= link_to 'Show', admin_setting_education %></td>
+        <td><%= link_to 'Edit', edit_admin_setting_education_path(admin_setting_education) %></td>
+        <td><%= link_to 'Destroy', admin_setting_education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Education', new_admin_setting_education_path %>
