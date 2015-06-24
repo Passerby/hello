@@ -1,4 +1,15 @@
-<div style="text-align: center;"><%= image_tag("big.jpg", width:'100%')%></div>
+<div class="hp-bg">
+<div class="container">
+	<div class='white-bg'>
+		<%= content_tag(:h1, t('hpTitle') )%>
+		<%= content_tag(:p, t('registerNow'), class:'registerNow' )%>
+		<%= content_tag(:p, t('becomeVIP'), class:'becomeVIP' )%>
+		<%= link_to t('register'), new_user_registration_path, :class=>'btn btn-primary btn-lg hp-big-btn' %>
+	</div>
+</div>
+</div>
+
+
 <div class="container">
 <div class='hp-block-title-jobs'></div>
 <div class="hp-job-border">
@@ -18,7 +29,8 @@
 <div class="hp-ad2">
 	<%= image_tag("hpAd2.jpg", width:'100%') %>
 </div>
-
+<div style="margin-top:-25px;">
 <%= link_to t('register'), new_user_registration_path, :class=>'btn btn-primary btn-lg hp-big-btn' %>
+</div>
 
 </div>	
