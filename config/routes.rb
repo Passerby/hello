@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'p/service'
 
-  get 'p/case'
+ # get 'p/service'
 
-  get 'p/about'
+  get 'p/case', to: 'p#case', as: 'case'
+
+  get 'p/about', to: 'p#about', as: 'about'
+
+  get 'p/service', to: 'p#service', as: 'service'
 
   resources :jobs
   resources :companies

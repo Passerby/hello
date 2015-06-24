@@ -77,16 +77,15 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'hellocareerdev.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['Host'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-     :address => "smtp.qq.com",
+     :address => ENV['Mail_address'],
      :port => 25,
      :domain => "qq.com",
      :authentication => :login,
-     :user_name => "zyune@qq.com", #你的邮箱
-     :password => "Zhangozi60" #你的密码
+     :user_name => ENV['Mail_user_name'],
+     :password => ENV['Mail_pass']
    }
   # login mail
-  config.S0623_DATABASE_PASSWORD = 'qazwsxedc'
 end
