@@ -21,8 +21,10 @@
 </div>
 <% end %>
 </div>
-<%= content_tag(:div, t('hpMoreJob'), class:'hp-more-job')%>
+<div class="hp-more-job">
+	<%= link_to t('hpMoreJob'), jobs_path, :class=>'' %>
 
+</div>
 <div class='hp-block-title-events'></div>
 <%= image_tag("hpAd.jpg", width:'100%')%>	
 
