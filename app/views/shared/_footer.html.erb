@@ -1,14 +1,7 @@
  <footer class='footer'>
      <div class="container">
-        <table class="hp-foot-nav">
-          <tr>
-            <td width="20%"><%= link_to t('navHome'), "/"  %></td>
-            <td width="20%"><%= link_to t('navAlljob'), jobs_path  %></td>
-            <td width="20%"><%= link_to t('navService'), service_path %></td>
-            <td width="20%"><%= link_to t('navCase'), case_path %></td>
-            <td width="20%"><%= link_to t('navAbout'), about_path %></td>
-          </tr>
-        </table>
+
+     <%= render("shared/nav") %>
 
         <div class="row">
           <div class="col-md-4 col-sm-offset-1">

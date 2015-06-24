@@ -85,13 +85,15 @@
 .hp-footer-val-desc{
 }
 .hp-footer-val{
-	font-size: 0.8em;
 	margin-bottom: 10px;
 }
 .hp-footer-weixin{border: solid 10px #fff;}
 .footer-weixin-wrapper{text-align: center;}
 .footer .list-unstyled li{
-	font-size: 0.8em; line-height: 2;
+	line-height: 2;
+}
+.footer {
+    
 }
 
 /*job detail page*/
