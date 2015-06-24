@@ -1,4 +1,4 @@
-<div style="text-align: center;"><%= image_tag("big.jpg")%></div>
+<div style="text-align: center;"><%= image_tag("big.jpg", width:'100%')%></div>
 <div class="container">
 <div class='hp-block-title-jobs'></div>
 <div class="hp-job-border">
@@ -13,10 +13,10 @@
 <%= content_tag(:div, t('hpMoreJob'), class:'hp-more-job')%>
 
 <div class='hp-block-title-events'></div>
-<%= image_tag("hpAd.jpg")%>	
+<%= image_tag("hpAd.jpg", width:'100%')%>	
 
 <div class="hp-ad2">
-	<%= image_tag("hpAd2.jpg")%>
+	<%= image_tag("hpAd2.jpg", width:'100%') %>
 </div>
 
 <%= link_to t('register'), new_user_registration_path, :class=>'btn btn-primary btn-lg hp-big-btn' %>

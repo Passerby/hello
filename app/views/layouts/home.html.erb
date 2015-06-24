@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= render("shared/assets") %>
+  <body>
+          <%= render("shared/header") %>
+          <%= bootstrap_flash %>
+          <%= yield %>
+          <%= render("shared/footer") %>    
+  </body>
+</html>
