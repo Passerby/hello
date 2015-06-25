@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+<% @jobs.each do |job| %>
+
+<div class="job-item">
+	<div class="jtitle"><%= link_to job.title, job_path(job) %></div>
+
+	<div><i class="fa fa-usd"></i>
+    <%= content_tag(:span, t('salary'), class:'value-desc')%> <%= job.salary %>
+    </div>
+  	<div><i class="fa fa-map-marker"></i>
+    <%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(job).name %>
+  	</div>
+
+</div>
+
+<% end %>
+  </div>
+</div>

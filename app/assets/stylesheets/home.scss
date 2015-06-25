@@ -74,13 +74,10 @@
 }
 
 .hp-ad2 {
-    height: 750px;
-    background-color: #f5f5f5;
     margin-top: $blockMargin;
 }
 
-.hp-big-btn {
-    margin: 0 auto;
+.big-btn {
     display: block;
     width: 200px;
     font-size: 1.5em;
@@ -89,8 +86,7 @@
 
 .main-search{
 	text-align:center;
-	padding: 30px 10px;
-	background-color:#eee;
+	padding: 30px 0px;
 	margin-bottom:40px;
 	.form-control{
 		padding-left:50px
@@ -115,7 +111,7 @@
 
 .footer {
     background-color: #f07f1d;
-    margin-top: 30px;
+    margin-top: $blockMargin;
     padding-bottom: 40px;
 }
 .footer a, .footer{
@@ -155,3 +151,4 @@
   color:lighten($c1, 30%);
     }
 }
+.line{ height:1px;background-color:$c1;margin-top:10px;}

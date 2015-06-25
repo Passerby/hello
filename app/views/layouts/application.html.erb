@@ -3,7 +3,8 @@
   <%= render("shared/assets") %>
   <body>
   <%= render("shared/header") %>
-  <%= render("shared/search") %>
+  <%= yield :top %>
+  
     <div class="container">
       <%= bootstrap_flash %>
       <%= yield %>

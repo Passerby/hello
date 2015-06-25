@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_jobposter!, :except => :show
+  before_action :authenticate_jobposter!, :except => [:show, :index]
   # GET /jobs
   # GET /jobs.json
   def index
@@ -10,6 +10,7 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    @jobs = Job.all
   end
 
   # GET /jobs/new
