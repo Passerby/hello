@@ -15,7 +15,7 @@
     <% @admin_setting_provinces.each do |admin_setting_province| %>
       <tr>
         <td><%= admin_setting_province.name %></td>
-        <td><%= admin_setting_province.pinyin %></td>
+        <td><%= admin_setting_province.en %></td>
         <td><%= link_to 'Show', admin_setting_province %></td>
         <td><%= link_to 'Edit', edit_admin_setting_province_path(admin_setting_province) %></td>
         <td><%= link_to 'Destroy', admin_setting_province, method: :delete, data: { confirm: 'Are you sure?' } %></td>

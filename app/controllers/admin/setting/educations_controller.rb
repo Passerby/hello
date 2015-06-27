@@ -70,6 +70,6 @@ class Admin::Setting::EducationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_setting_education_params
-      params.require(:admin_setting_education).permit(:name)
+      params.require(:admin_setting_education).permit(:name,:en)
     end
 end

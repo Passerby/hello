@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627015251) do
+ActiveRecord::Schema.define(version: 20150627152648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_setting_cities", force: :cascade do |t|
     t.string   "name"
-    t.string   "pinyin"
+    t.string   "en"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "admin_setting_province_id"
@@ -28,18 +28,21 @@ ActiveRecord::Schema.define(version: 20150627015251) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "en"
   end
 
   create_table "admin_setting_experiences", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "en"
   end
 
   create_table "admin_setting_industries", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "en"
   end
 
   create_table "admin_setting_job_titles", force: :cascade do |t|
@@ -51,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150627015251) do
 
   create_table "admin_setting_provinces", force: :cascade do |t|
     t.string   "name"
-    t.string   "pinyin"
+    t.string   "en"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

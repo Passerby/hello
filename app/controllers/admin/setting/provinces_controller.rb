@@ -70,6 +70,6 @@ class Admin::Setting::ProvincesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_setting_province_params
-      params.require(:admin_setting_province).permit(:name, :pinyin)
+      params.require(:admin_setting_province).permit(:name, :en)
     end
 end

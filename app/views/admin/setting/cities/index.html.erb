@@ -1,34 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Admin Setting Cities</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Pinyin</th>
-      <th>Province</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<div class="page-header">
+  <h1>城市</h1>
+</div>
+<table class="table table-striped">
   <tbody>
-    <% @admin_setting_cities.each do |admin_setting_city| %>
+    <% @admin_setting_cities.each do |city| %>
       <tr>
-        <td><%= admin_setting_city.name %></td>
-        <td><%= admin_setting_city.pinyin %></td>
-        <th><%= Admin::Setting::Province.find(admin_setting_city).name %>
-       
-        </th>
-
-        <td><%= link_to 'Show', admin_setting_city %></td>
-        <td><%= link_to 'Edit', edit_admin_setting_city_path(admin_setting_city) %></td>
-        <td><%= link_to 'Destroy', admin_setting_city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to city.id, admin_setting_city_path(city) %></td>
+        <td><%= city.name %></td>
+        <td><%= city.en %></td>
+        <td><%= city.admin_setting_province_id %></td>
+        <td><%= city.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_setting_city_path(city), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_setting_city_path(city),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New City', new_admin_setting_city_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_setting_city_path,
+            :class => 'btn btn-primary' %>

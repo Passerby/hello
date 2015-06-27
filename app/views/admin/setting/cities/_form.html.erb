@@ -1,31 +1,42 @@
-<%= form_for(@admin_setting_city) do |f| %>
-  <% if @admin_setting_city.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@admin_setting_city.errors.count, "error") %> prohibited this admin_setting_city from being saved:</h2>
+<%= form_for @admin_setting_city, :html => { :class => "form-horizontal city" } do |f| %>
 
-      <ul>
-      <% @admin_setting_city.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @admin_setting_city.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@admin_setting_city.errors.count, "error") %> prohibited this city from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @admin_setting_city.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@admin_setting_city[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :pinyin %><br>
-    <%= f.text_field :pinyin %>
+  <div class="control-group">
+    <%= f.label :en, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :en, :class => 'form-control' %>
+    </div>  </div>
+  <div class="control-group">
+    <%= f.label :admin_setting_province_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :admin_setting_province_id, :class => 'form-control' %>
+    </div>
   </div>
-    <div class="field">
-    <%= f.label :admin_setting_province_id %><br>
 
- <%= f.collection_select(:admin_setting_province_id, Admin::Setting::Province.all, :id, :name) %>
 
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            admin_setting_cities_path, :class => 'btn btn-default' %>
+
 <% end %>

@@ -70,6 +70,6 @@ class Admin::Setting::CitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_setting_city_params
-      params.require(:admin_setting_city).permit(:name, :pinyin,:admin_setting_province_id)
+      params.require(:admin_setting_city).permit(:name, :en,:admin_setting_province_id)
     end
 end
