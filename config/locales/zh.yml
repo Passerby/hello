@@ -69,3 +69,20 @@ zh:
   jobReq: "职位要求"
   jobComment: "顾问推荐"
   apply: "申请"
+
+  passwordLen: "密码长度至少为%{len}"
+  helpers:
+    label:
+      user:
+        email: "邮箱："
+        password: "密码："
+        password_confirmation: "密码确认："
+        name: "全名："
+        tel: "电话："
+        job: "期望职位："
+        country: "国际："
+        admin_setting_education_id: "学历："
+        admin_setting_experience_id: "工作经验："
+        admin_setting_industry_id: "期望行业："
+        summmary: "工作经历摘要："
+

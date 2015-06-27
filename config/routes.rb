@@ -42,7 +42,12 @@ Rails.application.routes.draw do
       resources :provinces
     end
   end
-  devise_for :users
+#  devise_for :users
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+  }
+
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
