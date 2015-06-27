@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
- # get 'p/service'
+
+  get 'admin/index', to: 'admin#index', as: 'admin'
+
+  get 'users/index', to: 'users#index', as: 'users'
+
+  get 'home/index', to: 'home#index', as: 'home'
 
   get 'p/case', to: 'p#case', as: 'case'
 
   get 'p/about', to: 'p#about', as: 'about'
 
   get 'p/service', to: 'p#service', as: 'service'
+
+#  get 'users', to: 'users/index', as: 'users'
 
   resources :jobs
   resources :companies
@@ -48,7 +55,7 @@ Rails.application.routes.draw do
   }
 
 
-  get 'home/index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

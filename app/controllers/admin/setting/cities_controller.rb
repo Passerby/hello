@@ -1,6 +1,7 @@
 class Admin::Setting::CitiesController < ApplicationController
   before_action :set_admin_setting_city, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!
+  layout 'admin'
   # GET /admin/setting/cities
   # GET /admin/setting/cities.json
   def index

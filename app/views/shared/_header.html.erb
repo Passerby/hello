@@ -1,9 +1,12 @@
     <div class='top-nav'><div class="container">
       <ul class="list-inline">
-        <li><%= link_to t('login'), new_user_session_path %></li>
-        <li><%= link_to t('register'), new_user_registration_path %></li>
-        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-        <li><%= link_to 'English', "/?locale=en",id:'langEn' %>
+<% if user_signed_in? %>
+<li><%= link_to t('logout'), destroy_user_session_path, :method => :delete %></li>
+<% else %>
+<li><%= link_to t('login'), new_user_session_path %></li>
+<li><%= link_to t('register'), new_user_registration_path %></li>
+<% end %>
+                <li><%= link_to 'English', "/?locale=en",id:'langEn' %>
         <%= link_to '中文', "/?locale=zh", id:'langZh' %></li>
       </ul></div>
     </div>

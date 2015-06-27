@@ -1,6 +1,7 @@
 class Admin::Setting::JobTitlesController < ApplicationController
   before_action :set_admin_setting_job_title, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!
+  layout 'admin'
   # GET /admin/setting/job_titles
   # GET /admin/setting/job_titles.json
   def index

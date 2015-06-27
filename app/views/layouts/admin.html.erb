@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<%= render("shared/assets") %>
+
+  <body class="admin">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><%=link_to "用户管理", users_path %></li>
+            <li><%= link_to "行业", admin_setting_industries_path %></li>
+            <li><%= link_to "学历", admin_setting_educations_path %></li>
+            <li><%= link_to "经验", admin_setting_experiences_path %></li>
+            <li><%= link_to "省份", admin_setting_provinces_path %></li>
+            <li><%= link_to "城市", admin_setting_cities_path %></li>
+          </ul>
+        </div>
+        <div class="col-sm-10 main" style="float:right">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+<%= javascript_include_tag "application" %>
+  </body>
+</html>
+
+users/index

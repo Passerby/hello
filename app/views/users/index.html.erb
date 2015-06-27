@@ -1,0 +1,14 @@
+<h3>所有用户</h3>
+<table class="table">
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email%></td>
+		<td><%= user.name%></td>
+		<td><%= user.job%></td>
+		<td><%= user.tel%></td>
+		<td><%= user.country%></td>
+		<td><%= user.country%></td>
+		<td><%= DateTime.parse(user.updated_at.to_s).strftime('%Y-%m-%d').to_s%></td>
+	</tr>
+<% end %>
+</table>
