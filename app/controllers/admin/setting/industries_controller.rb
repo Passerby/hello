@@ -29,7 +29,9 @@ class Admin::Setting::IndustriesController < ApplicationController
 
     respond_to do |format|
       if @admin_setting_industry.save
-        format.html { redirect_to @admin_setting_industry, notice: 'Industry was successfully created.' }
+        flash[:notice] = '创建成功'
+        format.html { redirect_to action:'index' }
+     #   format.html { redirect_to @admin_setting_industry, notice: 'Industry was successfully created.' }
         format.json { render :show, status: :created, location: @admin_setting_industry }
       else
         format.html { render :new }
@@ -43,7 +45,9 @@ class Admin::Setting::IndustriesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_setting_industry.update(admin_setting_industry_params)
-        format.html { redirect_to @admin_setting_industry, notice: 'Industry was successfully updated.' }
+        flash[:notice] = '更新成功'
+        format.html { redirect_to action:'index' }
+      #  format.html { redirect_to @admin_setting_industry, notice: 'Industry was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_setting_industry }
       else
         format.html { render :edit }

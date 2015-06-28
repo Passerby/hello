@@ -29,7 +29,9 @@ class Admin::Setting::EducationsController < ApplicationController
 
     respond_to do |format|
       if @admin_setting_education.save
-        format.html { redirect_to @admin_setting_education, notice: 'Education was successfully created.' }
+        flash[:notice] = '新建成功'
+        format.html { redirect_to action:'index' }
+       # format.html { redirect_to @admin_setting_education, notice: 'Education was successfully created.' }
         format.json { render :show, status: :created, location: @admin_setting_education }
       else
         format.html { render :new }
@@ -43,7 +45,9 @@ class Admin::Setting::EducationsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_setting_education.update(admin_setting_education_params)
-        format.html { redirect_to @admin_setting_education, notice: 'Education was successfully updated.' }
+        flash[:notice] = '更新成功'
+        format.html { redirect_to action:'index' }
+      #  format.html { redirect_to @admin_setting_education, notice: 'Education was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_setting_education }
       else
         format.html { render :edit }

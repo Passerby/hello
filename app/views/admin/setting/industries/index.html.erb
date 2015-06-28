@@ -1,27 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Admin Setting Industries</h1>
-
-<table>
+<div class="page-header">
+  <h1>行业</h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
+      <th>id</th>
+      <th>中文</th>
+      <th>英文</th>
+      <th></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @admin_setting_industries.each do |admin_setting_industry| %>
+    <% @admin_setting_industries.each do |industry| %>
       <tr>
-        <td><%= admin_setting_industry.name %></td>
-        <td><%= link_to 'Show', admin_setting_industry %></td>
-        <td><%= link_to 'Edit', edit_admin_setting_industry_path(admin_setting_industry) %></td>
-        <td><%= link_to 'Destroy', admin_setting_industry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= industry.id %></td>
+        <td><%= industry.name %></td>
+        <td><%= industry.en %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_admin_setting_industry_path(industry), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      admin_setting_industry_path(industry),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger hidden' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Industry', new_admin_setting_industry_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_admin_setting_industry_path,
+            :class => 'btn btn-primary' %>
