@@ -2,14 +2,22 @@
   <h1>城市</h1>
 </div>
 <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>中文</th>
+      <th>拼音</th>
+      <th>所属省</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
     <% @admin_setting_cities.each do |city| %>
       <tr>
-        <td><%= link_to city.id, admin_setting_city_path(city) %></td>
+        <td><%= city.id %></td>
         <td><%= city.name %></td>
         <td><%= city.en %></td>
         <td><%= Admin::Setting::Province.find(city).name %></td>
-        <td><%= city.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_setting_city_path(city), :class => 'btn btn-default btn-xs' %>

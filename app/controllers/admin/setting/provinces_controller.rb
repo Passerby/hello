@@ -29,7 +29,8 @@ class Admin::Setting::ProvincesController < ApplicationController
 
     respond_to do |format|
       if @admin_setting_province.save
-        format.html { redirect_to @admin_setting_province, notice: 'Province was successfully created.' }
+        flash[:notice] = 'Province was successfully created.'
+        format.html { redirect_to action:'index' }
         format.json { render :show, status: :created, location: @admin_setting_province }
       else
         format.html { render :new }
@@ -43,7 +44,8 @@ class Admin::Setting::ProvincesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_setting_province.update(admin_setting_province_params)
-        format.html { redirect_to @admin_setting_province, notice: 'Province was successfully updated.' }
+        flash[:notice] = 'Province was successfully updated.'
+        format.html { redirect_to action:'index'}
         format.json { render :show, status: :ok, location: @admin_setting_province }
       else
         format.html { render :edit }

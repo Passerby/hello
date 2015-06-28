@@ -1,16 +1,17 @@
 <%- model_class = Company -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= @company.name %></h1>
+</div>
+<div class="row">
+  <div class="col-md-3"><%= Jobposter.find(@company.jobposter_id).email %></div>
+  <div class="col-md-3"><%= @company.created_at %></div>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @company.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @company.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:jobposter_id) %>:</strong></dt>
-  <dd><%= @company.jobposter_id %></dd>
-</dl>
+<div style="margin:30px 0">
+  <%= sanitize @company.description.gsub(/\n/, '<br/>') %>
+</div>
+
+
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               companies_path, :class => 'btn btn-default'  %>

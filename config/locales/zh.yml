@@ -72,6 +72,7 @@ zh:
         name: "姓名"
         tel: "电话"
         job: "期望职位"
+        country: "国籍"
       job:
         title: "职位名称："
         salary: "薪水："

@@ -1,16 +1,11 @@
 class Admin::Setting::CitiesController < ApplicationController
-  before_action :set_admin_setting_city, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_setting_city, only: [:edit, :update, :destroy]
   before_action :authenticate_jobposter!
   layout 'admin'
   # GET /admin/setting/cities
   # GET /admin/setting/cities.json
   def index
     @admin_setting_cities = Admin::Setting::City.all
-  end
-
-  # GET /admin/setting/cities/1
-  # GET /admin/setting/cities/1.json
-  def show
   end
 
   # GET /admin/setting/cities/new
@@ -29,7 +24,9 @@ class Admin::Setting::CitiesController < ApplicationController
 #binding.pry
     respond_to do |format|
       if @admin_setting_city.save
-        format.html { redirect_to @admin_setting_city, notice: 'City was successfully created.' }
+        flash[:notice] = 'City was successfully created.'
+        format.html { redirect_to action:'index'}
+     #   format.html { redirect_to @admin_setting_city, notice: 'City was successfully created.' }
         format.json { render :show, status: :created, location: @admin_setting_city }
       else
         format.html { render :new }
@@ -43,7 +40,9 @@ class Admin::Setting::CitiesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_setting_city.update(admin_setting_city_params)
-        format.html { redirect_to @admin_setting_city, notice: 'City was successfully updated.' }
+        flash[:notice] = 'City was successfully updated.'
+        format.html { redirect_to action:'index'}
+      #  format.html { redirect_to @admin_setting_city, notice: 'City was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_setting_city }
       else
         format.html { render :edit }
