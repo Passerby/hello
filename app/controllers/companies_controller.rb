@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
-    @job.jobposter_id = current_jobposter.id
+    @company.jobposter_id = current_jobposter.id
 
     respond_to do |format|
       if @company.save
