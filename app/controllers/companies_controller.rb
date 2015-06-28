@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!
+  layout 'admin'
   # GET /companies
   # GET /companies.json
   def index
@@ -25,6 +26,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
+    @job.jobposter_id = current_jobposter.id
 
     respond_to do |format|
       if @company.save

@@ -29,5 +29,64 @@ en:
 
   register: "Register"
   login: "Login"
+  logout: "退出"
+  findPassword: "找回密码"
 
-  jobTitle: "Job Title"
+  hpTitle: "Start Your Global Career, From Here"
+  registerNow: "Register Right Now."
+  becomeVIP: "Our consultants will offer more global positions to you"
+  hpMoreJob: "MORE>>"
+
+  jobTitle: "Job Title: "
+  salary: "薪酬："
+  city: "地点："
+
+  news: "资讯"
+  weixin: "微信"
+  contactUs: "联系我们"
+  tel: "电话："
+  telVal: "021-6049-1675"
+  email: "Email："
+  emailVal: "service@hellocareer.cn"
+  addr: "地址："
+  addrVal: "上海市长宁区安化路492号A座102室"
+
+  jobDesc: "职位描述"
+  jobReq: "职位要求"
+  jobComment: "顾问推荐"
+  apply: "申请"
+
+  passwordLen: "密码长度至少为%{len}"
+  helpers:
+    label:
+      user:
+        email: "邮箱："
+        password: "密码："
+        password_confirmation: "密码确认："
+        name: "全名："
+        tel: "电话："
+        job: "期望职位："
+        country: "国际："
+        admin_setting_education_id: "学历："
+        admin_setting_experience_id: "工作经验："
+        admin_setting_industry_id: "期望行业："
+        summmary: "工作经历摘要："
+        remember_me: "自动登录"
+  activerecord:
+    models:
+      user: "用户"
+    attributes:
+      user:
+        name: "姓名"
+        tel: "电话"
+        job: "期望职位"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "不能为空"
+            tel:
+              blank: "不能为空"
+            job:
+              blank: "不能为空"

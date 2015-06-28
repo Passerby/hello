@@ -30,11 +30,11 @@
   <div class="control-group">
     <%= f.label :admin_setting_province_id, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :admin_setting_province_id, :class => 'form-control' %>
+      <%= f.collection_select(:admin_setting_province_id, Admin::Setting::Province.all, :id, :name,{}, {:class => 'form-control'}) %>
     </div>
   </div>
 
-
+<br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             admin_setting_cities_path, :class => 'btn btn-default' %>

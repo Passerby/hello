@@ -14,21 +14,21 @@
 <div class="hp-job-border">
 <% @jobs.each do |job| %>
 <div class="row hp-joblist">
-	<div class="col-md-6"><i class="fa fa-search"></i><%= content_tag(:span, t('jobTitle'), class:'value-desc')%> <%= link_to job.title, job %></div>
-	<div class="col-md-3"><i class="fa fa-usd"></i><%= content_tag(:span, t('salary'), class:'value-desc')%> <%= job.salary %></div>
-	<div class="col-md-3"><i class="fa fa-map-marker"></i><%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(job).name %></div>
+	<div class="col-md-6"><%= content_tag(:span, t('jobTitle'), class:'value-desc')%> <%= link_to job.title, job %></div>
+	<div class="col-md-3"><%= content_tag(:span, t('salary'), class:'value-desc')%> <%= job.salary %></div>
+	<div class="col-md-3"><%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(job).name %></div>
 </div>
 <% end %>
+<div class="row hp-more-job">
+	<div class="col-md-3 col-md-offset-9"><%= link_to t('hpMoreJob'), jobs_path, :class=>'' %></div>
 </div>
-<div class="hp-more-job">
-	<%= link_to t('hpMoreJob'), jobs_path, :class=>'' %>
 
 </div>
 <div class='hp-block-title-events'></div>
 <%= image_tag("hpAd.jpg", width:'100%')%>	
 
 <div class="hp-ad2">
-	<%= image_tag("hpAd2.jpg", width:'100%') %>
+	<%= image_tag("vip#{I18n.locale}.jpg", width:'100%') %>
 </div>
 <div style="margin-top:-25px;position:relative; z-index:10;">
 <%= link_to t('register'), new_user_registration_path, :class=>'btn btn-primary btn-lg big-btn center' %>

@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    render layout: "admin"
   end
 
   # GET /jobs/1
@@ -16,17 +17,19 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    render layout: "admin"
   end
 
   # GET /jobs/1/edit
   def edit
-    
+    render layout: "admin"
   end
 
   # POST /jobs
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+    @job.jobposter_id = current_jobposter.id
 
     respond_to do |format|
       if @job.save
@@ -37,6 +40,7 @@ class JobsController < ApplicationController
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
+    render layout: "admin"
   end
 
   # PATCH/PUT /jobs/1
@@ -51,6 +55,7 @@ class JobsController < ApplicationController
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
+    render layout: "admin"
   end
 
   # DELETE /jobs/1

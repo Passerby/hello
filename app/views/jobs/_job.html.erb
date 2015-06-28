@@ -1,0 +1,31 @@
+<h1><%=@job.title %></h1>
+<div class="row">
+	<div class="col-sm-5">
+		<%= content_tag(:span, t('company'), class:'jd-val-desc')%> <%= Company.find(@job).name %>
+	</div>
+	<div class="col-sm-4">
+		<%= content_tag(:span, t('salary'), class:'jd-val-desc')%> <%= @job.salary %>
+	</div>
+	<div class="col-sm-3">
+		<%= content_tag(:span, t('city'), class:'jd-val-desc')%> <%= Admin::Setting::City.find(@job).name %>
+	</div>
+</div>
+
+ 
+<%= content_tag(:div, t('jobDesc'), class:'jd-val-desc')%>
+<%= sanitize @job.description.gsub(/\n/, '<br/>') %>
+
+<%= content_tag(:div, t('jobReq'), class:'jd-val-desc')%>
+<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %>
+
+<%= content_tag(:div, t('jobComment'), class:'jd-val-desc')%>
+<%= sanitize @job.comment.gsub(/\n/, '<br/>') %>
+
+<% if jobposter_signed_in? %>
+<div class="pull-right"><%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %></div>
+<% end %>
+<br/>
+<br/>
+
+<%= link_to t('apply'), new_user_registration_path, :class=>'btn btn-primary btn-lg big-btn' %>

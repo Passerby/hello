@@ -1,6 +1,7 @@
 @import "v";
 .job-item {
-    margin-bottom: 15px;
+    padding:0 0 15px 10px;
+    border-bottom: solid 1px $c1;
     .jtitle{
         font-size: 1.2em;
     }
@@ -8,20 +9,19 @@
     	 font-size: 1.2em;
     }
 }
+.job-item:hover{
+    background-color:#eee;
+}
 .jd{
-	margin-top:30px;
-	background-color:$c1;
-	padding:10px 2px 2px 2px;
-	.content {
-		background-color:#fff;
-	}
-    .fa{
-        color:$c1;
-        font-size:1.2em;
-        padding-right:10px;
+    h1{color:$c1;
+    font-size:2em; line-height:2em;}
+    .jd-list{
+     border-right: solid 1px $c1;
     }
-
-    .jd-val-desc, h1{font-size: 1.5em; line-height: 3; margin:0;padding:0; color:$c1;}
+    .jd-action{
+     margin-top:20px;
+    }
+    .jd-val-desc{font-size: 1.2em; line-height: 3; margin:0;padding:0;}
 
     .jd-apply{
         width:130px;
@@ -31,14 +31,10 @@
     }
 
     .jtitle{
-     border-bottom: 1px solid $c1;
+        line-height:3em;
     }
     .jtitle a{
      color:$c1;
-     font-size:1.5em;
     }
-
-    .jd-list{ float:left; width:300px;}
-    .jd-content{float:right; width:640px;}
 }
 

@@ -51,25 +51,17 @@
 }
 
 .hp-job-border {
-    border: dashed 3px #f07f1d;
-    padding: 40px 0px 40px 40px;
-    margin-top: -10px;
-    border-radius: 6px;
+    padding: 40px 0px 15px 40px;
+    border-radius: 4px;
+    background-color:#eee;
 }
 
 .hp-more-job {
-    width: 210px;
-    height: 40px;
-    margin: -20px auto 0 auto;
-    border: dotted 2px #f07f1d;
-    background-color: #fff;
-    text-align: center;
-    line-height: 35px;
     font-size: 14px;
-    border-radius: 10px;
     a{
     	color:$c1;
     	text-decoration: none;
+        line-height:40px;
     }
 }
 
@@ -104,8 +96,7 @@
 
 /*login*/
 .login-b{
-	border:solid 1px #ddd;
-	padding:10px 30px;
+
 	height:340px;
 }
 
@@ -152,3 +143,9 @@
     }
 }
 .line{ height:1px;background-color:$c1;margin-top:10px;}
+h2{margin-bottom:30px;}
+
+form .btn{
+      padding-left: 30px;
+  padding-right: 30px;
+}

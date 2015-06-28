@@ -25,15 +25,17 @@ zh:
   register: "注册"
   login: "登录"
   logout: "退出"
+  findPassword: "找回密码"
 
   hpTitle: "从这里，开启你的国际职业生涯！"
   registerNow: "立即注册"
   becomeVIP: "成为我们的VIP，为您推荐更多全球工作机会"
-  hpMoreJob: "更多"
+  hpMoreJob: "更多>>"
 
   jobTitle: "职位名称："
   salary: "薪酬："
   city: "地点："
+  company: "公司："
 
   news: "资讯"
   weixin: "微信"
@@ -65,4 +67,22 @@ zh:
         admin_setting_experience_id: "工作经验："
         admin_setting_industry_id: "期望行业："
         summmary: "工作经历摘要："
-
+        remember_me: "自动登录"
+  activerecord:
+    models:
+      user: "用户"
+    attributes:
+      user:
+        name: "姓名"
+        tel: "电话"
+        job: "期望职位"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "不能为空"
+            tel:
+              blank: "不能为空"
+            job:
+              blank: "不能为空"
