@@ -1,0 +1,27 @@
+<div class="jd">
+<div class="row">
+<div class="col-md-4">
+<div class="jd-list">		
+<%= render ("jobs/list") %>
+</div>
+</div>
+<div class="jd-content col-md-8">
+<div class="jd-action">
+      <%= link_to t('apply'), '#', :class=>'btn btn-primary jd-apply' %>
+      <%= link_to t('save'), '#', :class=>'jd-btn' %>
+      <%= link_to t('share'), '#', :class=>'jd-btn' %>
+</div>
+      <%= render ("jobs/job") %>
+	</div>
+</div><!--end content-->
+<div class="clearfix"></div>
+</div><!--end jd-->
+
+<% content_for :top do %>
+<div class="container">
+  <%= image_tag("banner.jpg", width:'100%') %>
+  <%= render("shared/search") %>
+</div>
+<div class="line"></div>
+<% end %>
+
