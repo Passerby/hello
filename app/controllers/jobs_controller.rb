@@ -1,11 +1,17 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_jobposter!, :except => [:show, :index]
+  before_action :authenticate_jobposter!, :except => [:show, :last]
   # GET /jobs
   # GET /jobs.json
   def index
     @jobs = Job.all
     render layout: "admin"
+  end
+
+  def last
+    @job = Job.last
+    @jobs = Job.all
+    render 'jobs/show'
   end
 
   # GET /jobs/1

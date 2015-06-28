@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
 #  get 'users', to: 'users/index', as: 'users'
 
+  get 'jobs/last', to: 'jobs#last', as: 'lastjob'
   resources :jobs
+
   resources :companies
   devise_for :jobposters
   resources :companies

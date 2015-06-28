@@ -14,9 +14,22 @@
 <div class="hp-job-border">
 <% @jobs.each do |job| %>
 <div class="row hp-joblist">
-	<div class="col-md-6"><%= content_tag(:span, t('jobTitle'), class:'value-desc')%> <%= link_to job.title, job %></div>
-	<div class="col-md-3"><%= content_tag(:span, t('salary'), class:'value-desc')%> <%= job.salary %></div>
-	<div class="col-md-3"><%= content_tag(:span, t('city'), class:'value-desc')%> <%= Admin::Setting::City.find(job).name %></div>
+	<div class="col-md-6">
+		<span class="value-desc">
+			<%= Job.human_attribute_name(:title) %>
+		</span>
+		<%= link_to job.title, job %></div>
+	<div class="col-md-3">
+		<span class="value-desc">
+			<%= Job.human_attribute_name(:salary) %>
+		</span>
+		<%= job.salary %>
+	</div>
+	<div class="col-md-3">
+		<span class="value-desc">
+			<%= Job.human_attribute_name(:admin_setting_city_id) %>
+		</span><%= Admin::Setting::City.find(job.admin_setting_city_id).name %>
+	</div>
 </div>
 <% end %>
 <div class="row hp-more-job">
