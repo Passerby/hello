@@ -1,8 +1,28 @@
+<%- model_class = Job -%>
 <div class="jd">
 <div class="row">
 <div class="col-md-4">
-<div class="jd-list">		
+<div class="jd-list">   
 <%= render ("jobs/list") %>
+<nav>
+  <ul class="pagination">
+    <li class="disabled">
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>
 </div>
 <div class="jd-content col-md-8">
@@ -12,7 +32,7 @@
       <%= link_to t('share'), '#', :class=>'jd-btn' %>
 </div>
       <%= render ("jobs/job") %>
-	</div>
+  </div>
 </div><!--end content-->
 <div class="clearfix"></div>
 </div><!--end jd-->

@@ -40,7 +40,7 @@ class JobsController < ApplicationController
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
-    render layout: "admin"
+  #  render layout: "admin"
   end
 
   # PATCH/PUT /jobs/1
@@ -55,7 +55,7 @@ class JobsController < ApplicationController
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
-    render layout: "admin"
+#    render layout: "admin"
   end
 
   # DELETE /jobs/1

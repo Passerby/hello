@@ -1,24 +1,39 @@
+<%- model_class = Job -%>
 <h1><%=@job.title %></h1>
 <div class="row">
 	<div class="col-sm-5">
-		<%= content_tag(:span, t('company'), class:'jd-val-desc')%> <%= Company.find(@job).name %>
+		<span class="jd-val-desc">
+			<%= model_class.human_attribute_name(:company_id) %>
+		</span>
+		<%= Company.find(@job.company_id).name %>
 	</div>
 	<div class="col-sm-4">
-		<%= content_tag(:span, t('salary'), class:'jd-val-desc')%> <%= @job.salary %>
+		<span class="jd-val-desc">
+			<%= model_class.human_attribute_name(:salary) %>
+		</span>
+		<%= @job.salary %>
 	</div>
 	<div class="col-sm-3">
-		<%= content_tag(:span, t('city'), class:'jd-val-desc')%> <%= Admin::Setting::City.find(@job).name %>
+		<span class="jd-val-desc">
+			<%= model_class.human_attribute_name(:admin_setting_city_id) %>
+		</span>
+		<%= Admin::Setting::City.find(@job.admin_setting_city_id).name %>
 	</div>
 </div>
 
- 
-<%= content_tag(:div, t('jobDesc'), class:'jd-val-desc')%>
+<div class="jd-val-desc">
+	<%= model_class.human_attribute_name(:description) %>
+</div>
 <%= sanitize @job.description.gsub(/\n/, '<br/>') %>
 
-<%= content_tag(:div, t('jobReq'), class:'jd-val-desc')%>
+<div class="jd-val-desc">
+	<%= model_class.human_attribute_name(:requirement) %>
+</div>
 <%= sanitize @job.requirement.gsub(/\n/, '<br/>') %>
 
-<%= content_tag(:div, t('jobComment'), class:'jd-val-desc')%>
+<div class="jd-val-desc">
+	<%= model_class.human_attribute_name(:comment) %>
+</div>
 <%= sanitize @job.comment.gsub(/\n/, '<br/>') %>
 
 <% if jobposter_signed_in? %>

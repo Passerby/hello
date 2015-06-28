@@ -2,31 +2,40 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:salary) %></th>
+      <th><%= model_class.human_attribute_name(:endDate) %></th>
+      <th><%= model_class.human_attribute_name(:admin_setting_city_id) %></th>
+      <th><%= model_class.human_attribute_name(:company_id) %></th>
+      <th><%= model_class.human_attribute_name(:jobposter_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= link_to job.id, job_path(job) %></td>
+        <td><%= job.title %></td>
+        <td><%= job.salary %></td>
+        <td><%= job.endDate %></td>
+        <td><%= Admin::Setting::City.find(job.admin_setting_city_id).name %></td>
+        <td><%= Company.find(job.company_id).name %></td>
+        <td><%= Jobposter.find(job.jobposter_id).email %></td>
+        <td><%= job.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_job_path(job), :class => 'btn btn-default btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @jobs.each do |job| %>
-
-<div class="row job-item">
-  <div class="col-md-7">
-    <div class="jtitle"><%= link_to job.title + " - "+Admin::Setting::City.find(job).name, job_path(job) %></div>
-    <%= job.salary %> 
-
-  </div>
-  <div class="col-md-5">
-  <div class="jcomplany">公司名</div>
-    <%= DateTime.parse(job.updated_at.to_s).strftime('%Y-%m-%d').to_s%>
-  </div>
-</div>
-
-<% end %>
-
-<% content_for :top do %>
-<div class="container">
-  <%= image_tag("banner.jpg", width:'100%') %>
-  <%= render("shared/search") %>
-</div>
-<% end %>
-
-
-
-
- 
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_job_path,
+            :class => 'btn btn-primary' %>

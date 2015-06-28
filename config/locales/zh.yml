@@ -32,11 +32,6 @@ zh:
   becomeVIP: "成为我们的VIP，为您推荐更多全球工作机会"
   hpMoreJob: "更多>>"
 
-  jobTitle: "职位名称："
-  salary: "薪酬："
-  city: "地点："
-  company: "公司："
-
   news: "资讯"
   weixin: "微信"
   contactUs: "联系我们"
@@ -71,18 +66,20 @@ zh:
   activerecord:
     models:
       user: "用户"
+      job: "职位"
     attributes:
       user:
         name: "姓名"
         tel: "电话"
         job: "期望职位"
-    errors:
-      models:
-        user:
-          attributes:
-            name:
-              blank: "不能为空"
-            tel:
-              blank: "不能为空"
-            job:
-              blank: "不能为空"
+      job:
+        title: "职位名称："
+        salary: "薪水："
+        admin_setting_city_id: "地点："
+        company_id: "公司："
+        created_at: "创建时间："
+        endDate: "截止日期："
+        jobposter_id: "发布人："
+        description: "职位描述："
+        requirement: "职位要求："
+        comment: "顾问推荐："
