@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = cookies[:lang] || I18n.default_locale 
   end
 
+  def after_sign_in_path_for(jobposter)
+    jobs_path
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << [:tel, :name, :job, :country,
