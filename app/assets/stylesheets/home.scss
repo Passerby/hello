@@ -1,22 +1,25 @@
 @import "v";
 .hp-bg{	
-    background: url(/assets/bg1.jpg) no-repeat center center;
-    height:477px;
-
+    .item{height:477px;background-position: center center;}
+    .flash1{background-image:url(/assets/bg1.jpg);}
+    .flash2{background-image:url(/assets/bg2.jpg);}
+    .flash3{background-image:url(/assets/bg3.jpg);}
+    .flash4{background-image:url(/assets/bg4.jpg);}
     .white-bg{
     	background-color: rgba(255,255,255,0.8);
     	width:85%;
-    	margin:90px auto 0 auto;
+    	margin:-400px auto 0 auto;
     	padding:30px 0;
     	text-align: center;
     	border-radius: 6px;
     	-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
   		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+        z-index:100;
+        position:relative;
     }
     h1{font-size:40px; color:$c1}
     .registerNow {font-size:40px;margin:60px 0 0 0;}
     .becomeVIP{ font-size:2em; }
-
 }
 
 
@@ -37,19 +40,25 @@
 }
 
 .hp-block-title-events {
-    background: url(/assets/events.png) no-repeat center center;
-    height: 50px;
+    background: url(/assets/h_event.jpg) no-repeat center center;
+    height: 68px;
     margin-top: $blockMargin;
 }
 
 .hp-block-title-jobs {
-    background: url(/assets/jobs.png) no-repeat center center;
-    height: 50px;
+    background: url(/assets/h_job.jpg) no-repeat center center;
+    height: 68px;
     margin-top: $blockMargin;
     z-index: 100;
     position: relative;
 }
-
+.hp-block-title-vip{
+   background: url(/assets/h_vip.jpg) no-repeat center center;
+    height: 68px;
+    margin-top: $blockMargin;
+    z-index: 100;
+    position: relative; 
+}
 .hp-job-border {
     padding: 40px 0px 15px 40px;
     border-radius: 4px;
@@ -63,10 +72,6 @@
     	text-decoration: none;
         line-height:40px;
     }
-}
-
-.hp-ad2 {
-    margin-top: $blockMargin;
 }
 
 .big-btn {
