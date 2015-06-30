@@ -1,2 +1,27 @@
 <h1>P#case</h1>
 <p>Find me in app/views/p/case.html.erb</p>
+
+<table>
+  <tbody>
+    <% @case_users.each do |case_user| %>
+      <tr>
+        <td><%= case_user.name %></td>
+        <td><%= case_user.title %></td>
+        <td><%= case_user.company %></td>
+        <td><%= case_user.img %></td>
+        <td><%= case_user.content %></td>
+        <td><%= case_user.lang %></td>
+        <td><%= case_user.active %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+
+<div id="pickfiles">upload</div>
+<div id="container"></div>
+
+<%= javascript_include_tag "/js/qiniu.min" %>
+<%= javascript_include_tag "/js/plupload.full.min" %>

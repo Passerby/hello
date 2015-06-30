@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @case_company.name %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @case_company.img %>
+</p>
+
+<p>
+  <strong>Requirement:</strong>
+  <%= @case_company.requirement %>
+</p>
+
+<p>
+  <strong>Usage:</strong>
+  <%= @case_company.usage %>
+</p>
+
+<p>
+  <strong>Effect:</strong>
+  <%= @case_company.effect %>
+</p>
+
+<p>
+  <strong>Lang:</strong>
+  <%= @case_company.lang %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @case_company.active %>
+</p>
+
+<%= link_to 'Edit', edit_case_company_path(@case_company) %> |
+<%= link_to 'Back', case_companies_path %>

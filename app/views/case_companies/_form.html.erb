@@ -1,0 +1,45 @@
+<%= form_for(@case_company) do |f| %>
+  <% if @case_company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@case_company.errors.count, "error") %> prohibited this case_company from being saved:</h2>
+
+      <ul>
+      <% @case_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :img %><br>
+    <%= f.text_field :img %>
+  </div>
+  <div class="field">
+    <%= f.label :requirement %><br>
+    <%= f.text_field :requirement %>
+  </div>
+  <div class="field">
+    <%= f.label :usage %><br>
+    <%= f.text_field :usage %>
+  </div>
+  <div class="field">
+    <%= f.label :effect %><br>
+    <%= f.text_field :effect %>
+  </div>
+  <div class="field">
+    <%= f.label :lang %><br>
+    <%= f.text_field :lang %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

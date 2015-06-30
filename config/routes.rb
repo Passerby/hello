@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :case_companies
+  resources :case_users
   get 'admin/index', to: 'admin#index', as: 'admin'
 
   get 'users/index', to: 'users#index', as: 'users'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   get 'p/about', to: 'p#about', as: 'about'
 
   get 'p/service', to: 'p#service', as: 'service'
+  get 'p/uptoken', to: 'p#uptoken'
 
 #  get 'users', to: 'users/index', as: 'users'
 

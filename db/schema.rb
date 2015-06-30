@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627152648) do
+ActiveRecord::Schema.define(version: 20150630153238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,30 @@ ActiveRecord::Schema.define(version: 20150627152648) do
   create_table "admin_setting_provinces", force: :cascade do |t|
     t.string   "name"
     t.string   "en"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "case_companies", force: :cascade do |t|
+    t.string   "name"
+    t.string   "img"
+    t.string   "requirement"
+    t.string   "usage"
+    t.string   "effect"
+    t.string   "lang"
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "case_users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "company"
+    t.string   "img"
+    t.text     "content"
+    t.string   "lang"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
