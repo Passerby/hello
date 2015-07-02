@@ -41,11 +41,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['Host'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-     :address => "smtp.qq.com",
-     :port => 587,
-     :domain => "qq.com",
-     :authentication => :login,
-     :user_name => "zyune@qq.com",
-     :password => "Zhangozi60"
+
    }
 end
