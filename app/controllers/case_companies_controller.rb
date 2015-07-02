@@ -1,10 +1,12 @@
 class CaseCompaniesController < ApplicationController
   before_action :set_case_company, only: [:show, :edit, :update, :destroy]
+  layout 'admin'
 
   # GET /case_companies
   # GET /case_companies.json
   def index
     @case_companies = CaseCompany.all
+    @case_users = CaseUser.all
   end
 
   # GET /case_companies/1

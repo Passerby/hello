@@ -15,8 +15,8 @@
             <li><%= link_to "经验", admin_setting_experiences_path %></li>
             <li><%= link_to "省份", admin_setting_provinces_path %></li>
             <li><%= link_to "城市", admin_setting_cities_path %></li>
-            <li><%= link_to "主要案例", '#' %></li>
-            <li><%= link_to "其他案例", '#' %></li>
+            <li><%= link_to "主要案例", case_users_path %></li>
+            <li><%= link_to "其他案例", case_companies_path %></li>
             <li><%= link_to "首页广告位", '#' %></li>
           </ul>
         </div>
@@ -28,6 +28,9 @@
     </div>
 
 <%= javascript_include_tag "application" %>
+<%= javascript_include_tag "/js/qiniu.min" %>
+<%= javascript_include_tag "/js/plupload.full.min" %>
+
   </body>
 </html>
 

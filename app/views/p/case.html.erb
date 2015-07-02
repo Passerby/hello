@@ -1,6 +1,3 @@
-<h1>P#case</h1>
-<p>Find me in app/views/p/case.html.erb</p>
-
 <table>
   <tbody>
     <% @case_users.each do |case_user| %>
@@ -17,11 +14,18 @@
   </tbody>
 </table>
 
-
-
-
-<div id="pickfiles">upload</div>
-<div id="container"></div>
-
-<%= javascript_include_tag "/js/qiniu.min" %>
-<%= javascript_include_tag "/js/plupload.full.min" %>
+<table>
+    <tbody>
+    <% @case_companies.each do |case_company| %>
+      <tr>
+        <td><%= case_company.name %></td>
+        <td><%= case_company.img %></td>
+        <td><%= case_company.requirement %></td>
+        <td><%= case_company.usage %></td>
+        <td><%= case_company.effect %></td>
+        <td><%= case_company.lang %></td>
+        <td><%= case_company.active %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

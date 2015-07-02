@@ -82,10 +82,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
      :address => ENV['Mail_address'],
      :port => 25,
-     :domain => "qq.com",
+     :domain => "euchost.com",
      :authentication => :login,
      :user_name => ENV['Mail_user_name'],
-     :password => ENV['Mail_pass']
+     :password => ENV['Mail_pass'],
+     :enable_starttls_auto => true
    }
   # login mail
 end
