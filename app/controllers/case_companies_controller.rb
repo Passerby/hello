@@ -6,7 +6,6 @@ class CaseCompaniesController < ApplicationController
   # GET /case_companies.json
   def index
     @case_companies = CaseCompany.all
-    @case_users = CaseUser.all
   end
 
   # GET /case_companies/1

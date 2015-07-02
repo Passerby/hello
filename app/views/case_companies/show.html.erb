@@ -1,39 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = CaseCompany -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @case_company.name %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @case_company.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:img) %>:</strong></dt>
+  <dd><%= @case_company.img %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:requirement) %>:</strong></dt>
+  <dd><%= @case_company.requirement %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:usage) %>:</strong></dt>
+  <dd><%= @case_company.usage %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:effect) %>:</strong></dt>
+  <dd><%= @case_company.effect %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lang) %>:</strong></dt>
+  <dd><%= @case_company.lang %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
+  <dd><%= @case_company.active %></dd>
+</dl>
 
-<p>
-  <strong>Img:</strong>
-  <%= @case_company.img %>
-</p>
-
-<p>
-  <strong>Requirement:</strong>
-  <%= @case_company.requirement %>
-</p>
-
-<p>
-  <strong>Usage:</strong>
-  <%= @case_company.usage %>
-</p>
-
-<p>
-  <strong>Effect:</strong>
-  <%= @case_company.effect %>
-</p>
-
-<p>
-  <strong>Lang:</strong>
-  <%= @case_company.lang %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @case_company.active %>
-</p>
-
-<%= link_to 'Edit', edit_case_company_path(@case_company) %> |
-<%= link_to 'Back', case_companies_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              case_companies_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_case_company_path(@case_company), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              case_company_path(@case_company),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

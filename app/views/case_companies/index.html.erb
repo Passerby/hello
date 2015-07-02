@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Case Companies</h1>
-
-<table>
+<%- model_class = CaseCompany -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Img</th>
-      <th>Requirement</th>
-      <th>Usage</th>
-      <th>Effect</th>
-      <th>Lang</th>
-      <th>Active</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:img) %></th>
+      <th><%= model_class.human_attribute_name(:requirement) %></th>
+      <th><%= model_class.human_attribute_name(:usage) %></th>
+      <th><%= model_class.human_attribute_name(:effect) %></th>
+      <th><%= model_class.human_attribute_name(:lang) %></th>
+      <th><%= model_class.human_attribute_name(:active) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @case_companies.each do |case_company| %>
       <tr>
+        <td><%= link_to case_company.id, case_company_path(case_company) %></td>
         <td><%= case_company.name %></td>
         <td><%= case_company.img %></td>
         <td><%= case_company.requirement %></td>
@@ -26,14 +28,21 @@
         <td><%= case_company.effect %></td>
         <td><%= case_company.lang %></td>
         <td><%= case_company.active %></td>
-        <td><%= link_to 'Show', case_company %></td>
-        <td><%= link_to 'Edit', edit_case_company_path(case_company) %></td>
-        <td><%= link_to 'Destroy', case_company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l case_company.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_case_company_path(case_company), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      case_company_path(case_company),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Case company', new_case_company_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_case_company_path,
+            :class => 'btn btn-primary' %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'uploader/img'
+
   resources :case_companies
   resources :case_users
   get 'admin/index', to: 'admin#index', as: 'admin'

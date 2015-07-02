@@ -1,31 +1,29 @@
-<table>
+<div></div>
+<table class="table case-table">
   <tbody>
     <% @case_users.each do |case_user| %>
-      <tr>
-        <td><%= case_user.name %></td>
-        <td><%= case_user.title %></td>
-        <td><%= case_user.company %></td>
-        <td><%= case_user.img %></td>
-        <td><%= case_user.content %></td>
-        <td><%= case_user.lang %></td>
-        <td><%= case_user.active %></td>
+      <tr style="height:100px;">
+        <td width="13%"><img src="<%= case_user.img%>" width="100px"></td>
+        <td width="13%">
+          <div><%= case_user.name %></div>
+          <div><%= case_user.company %></div>
+          <div><%= case_user.title %></div>
+        </td>
+        <td style="text-align: left;"><%= sanitize case_user.content.gsub(/\n/, '<br/>') %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<table>
-    <tbody>
-    <% @case_companies.each do |case_company| %>
-      <tr>
-        <td><%= case_company.name %></td>
-        <td><%= case_company.img %></td>
-        <td><%= case_company.requirement %></td>
-        <td><%= case_company.usage %></td>
-        <td><%= case_company.effect %></td>
-        <td><%= case_company.lang %></td>
-        <td><%= case_company.active %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @case_companies.each do |case_company| %>
+<div class="case-other">
+<%= case_company.img %>
+<%= case_company.name %>
+  <div class="font-c1">招聘需求</div>
+  <div><%= case_company.requirement %></div>
+  <div class="font-c1">产品使用</div>
+  <div><%= case_company.usage %></div>
+  <div class="font-c1">招聘效果</div>
+  <div><%= case_company.effect %></div>
+</div>
+<% end %>

@@ -1,48 +1,73 @@
-<%= form_for(@case_company) do |f| %>
-  <% if @case_company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@case_company.errors.count, "error") %> prohibited this case_company from being saved:</h2>
+<%= form_for @case_company, :html => { :class => "form-horizontal case_company" } do |f| %>
 
-      <ul>
-      <% @case_company.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @case_company.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@case_company.errors.count, "error") %> prohibited this case_company from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @case_company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:name]) %>
   </div>
-  <div class="field">
-    <%= f.label :img %><br>
-    <%= f.text_field :img %>
+  <div class="control-group">
+    <%= f.label :img, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :img, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:img]) %>
   </div>
-  <div class="field">
-    <%= f.label :requirement %><br>
-    <%= f.text_field :requirement %>
+  <div class="control-group">
+    <%= f.label :requirement, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :requirement, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:requirement]) %>
   </div>
-  <div class="field">
-    <%= f.label :usage %><br>
-    <%= f.text_field :usage %>
+  <div class="control-group">
+    <%= f.label :usage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :usage, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:usage]) %>
   </div>
-  <div class="field">
-    <%= f.label :effect %><br>
-    <%= f.text_field :effect %>
+  <div class="control-group">
+    <%= f.label :effect, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :effect, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:effect]) %>
   </div>
-  <div class="field">
-    <%= f.label :lang %><br>
-    <%= f.text_field :lang %>
+  <div class="control-group">
+    <%= f.label :lang, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :lang, :class => 'form-control' %>
+    </div>
+    <%= error_span(@case_company[:lang]) %>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
+  <div class="control-group">
+     <%= f.label :active, :class => 'control-label'  %>
+    <div class="controls">
+      <%= f.check_box :active %>
+    </div>
+    <%= error_span(@case_company[:active]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
 
-<div id="pickfiles">upload</div>
-<div id="container"></div>
+<br/>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            case_companies_path, :class => 'btn btn-default' %>
+
+<% end %>

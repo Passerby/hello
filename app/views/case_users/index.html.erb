@@ -1,39 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Case Users</h1>
-
-<table>
+<%- model_class = CaseUser -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Company</th>
-      <th>Img</th>
-      <th>Content</th>
-      <th>Lang</th>
-      <th>Active</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:company) %></th>
+      <th><%= model_class.human_attribute_name(:img) %></th>
+     
+      <th><%= model_class.human_attribute_name(:lang) %></th>
+      <th><%= model_class.human_attribute_name(:active) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @case_users.each do |case_user| %>
       <tr>
+        <td><%= link_to case_user.id, case_user_path(case_user) %></td>
         <td><%= case_user.name %></td>
         <td><%= case_user.title %></td>
         <td><%= case_user.company %></td>
-        <td><%= case_user.img %></td>
-        <td><%= case_user.content %></td>
+        <td><img src="<%= case_user.img %>"></td>
+      
         <td><%= case_user.lang %></td>
         <td><%= case_user.active %></td>
-        <td><%= link_to 'Show', case_user %></td>
-        <td><%= link_to 'Edit', edit_case_user_path(case_user) %></td>
-        <td><%= link_to 'Destroy', case_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l case_user.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_case_user_path(case_user), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      case_user_path(case_user),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Case user', new_case_user_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_case_user_path,
+            :class => 'btn btn-primary' %>
