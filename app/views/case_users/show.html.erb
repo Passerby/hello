@@ -1,6 +1,6 @@
 <%- model_class = CaseUser -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1>主要案例</h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:company) %>:</strong></dt>
   <dd><%= @case_user.company %></dd>
   <dt><strong><%= model_class.human_attribute_name(:img) %>:</strong></dt>
-  <dd><%= @case_user.img %></dd>
+  <dd><img src="<%= @case_user.img %>"></dd>
   <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
   <dd>
       <%= sanitize @case_user.content.gsub(/\n/, '<br/>') %>

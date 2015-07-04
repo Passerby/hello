@@ -1,6 +1,6 @@
 <%- model_class = CaseCompany -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1>其他案例</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -22,7 +22,7 @@
       <tr>
         <td><%= link_to case_company.id, case_company_path(case_company) %></td>
         <td><%= case_company.name %></td>
-        <td><%= case_company.img %></td>
+        <td><img src="<%= case_company.img %>"></td>
         <td><%= case_company.requirement %></td>
         <td><%= case_company.usage %></td>
         <td><%= case_company.effect %></td>

@@ -53,7 +53,7 @@
   <div class="control-group">
     <%= f.label :lang, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :lang, :class => 'form-control' %>
+      <%= f.select(:lang, [["CN","cn"],["EN","en"]],{},{:class => 'form-control'}) %>
     </div>
     <%= error_span(@case_company[:lang]) %>
   </div>
