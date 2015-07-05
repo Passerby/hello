@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'my_info/index', to: 'my_info#index', as: 'myInfo'
+
   get 'resume/index'
 
   get 'uploader/img'
