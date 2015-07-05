@@ -50,6 +50,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'pry'
+#  gem 'pry-debugger'
 end
 group :production do
   gem 'rails_12factor'

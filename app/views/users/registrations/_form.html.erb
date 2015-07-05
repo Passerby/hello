@@ -1,13 +1,20 @@
   <div class="form-group">
-    <span>*</span>
-    <%= f.label :email, :class=>'col-sm-4 control-label' %>
+
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= f.label :email%>
+    </label>
+    
     <div class="col-sm-5">
       <%= f.email_field :email, autofocus: true, :class=>'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password,:class=>'col-sm-4 control-label' %>
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= f.label :password%>
+    </label>
     <div class="col-sm-5">
     <%= f.password_field :password, autocomplete: "off", :class=>'form-control' %>
     <% if @minimum_password_length %>
@@ -17,26 +24,35 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :name, :class=>'col-sm-4 control-label' %>
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= f.label :name%>
+    </label>
     <div class="col-sm-5">
       <%= f.text_field :name, :class=>'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :tel, :class=>'col-sm-4 control-label' %>
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= f.label :tel%>
+    </label>
     <div class="col-sm-5">
       <%= f.text_field :tel, :class=>'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :job, :class=>'col-sm-4 control-label' %>
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= f.label :job%>
+    </label>
     <div class="col-sm-5">
       <%= f.text_field :job, :class=>'form-control' %>
     </div>
   </div>
-
+<div class="more-regist-info"><i class="fa-bullhorn fa"></i> <%= t("moreRegistInfo")%></div>
   <div class="form-group">
     <%= f.label :country, :class=>'col-sm-4 control-label' %>
     <div class="col-sm-5">
@@ -66,8 +82,21 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :resume_id, :class => 'col-sm-4 control-label' %>
+    <div class="controls col-sm-5">
+      <button id="pickfiles" type="button" class="btn btn-default"><%= t("uploadResume")%></button>
+      <div id="resumeName"></div>
+      <%= f.text_field :resume_id, :class=>'form-control hidden', id:"resumeId" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :summmary, :class => 'col-sm-4 control-label' %>
     <div class="controls col-sm-5">
       <%= f.text_area :summmary, :class => 'form-control',  :rows => "5" %>
     </div>
   </div>
+
+<%= javascript_include_tag "/js/qiniu.min" %>
+<%= javascript_include_tag "/js/plupload.full.min" %>
+<script type="text/javascript" src="/js/upload.js"></script>

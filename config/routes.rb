@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'resume/index'
+
   get 'uploader/img'
 
   resources :case_companies
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
 
   get 'p/service', to: 'p#service', as: 'service'
   get 'p/uptoken', to: 'p#uptoken'
+  post 'resume/create', to: 'resume#create'
 
 #  get 'users', to: 'users/index', as: 'users'
 

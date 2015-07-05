@@ -89,4 +89,5 @@ Rails.application.configure do
      :enable_starttls_auto => true
    }
   # login mail
+  config.resumePath = "http://7xk15s.com1.z0.glb.clouddn.com/"
 end

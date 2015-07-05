@@ -57,7 +57,7 @@ zh:
         name: "全名："
         tel: "电话："
         job: "期望职位："
-        country: "国际："
+        country: "国籍："
         admin_setting_education_id: "学历："
         admin_setting_experience_id: "工作经验："
         admin_setting_industry_id: "期望行业："
@@ -84,3 +84,4 @@ zh:
         description: "职位描述："
         requirement: "职位要求："
         comment: "顾问推荐："
+  moreRegistInfo: "提供更多信息， 将有助于我们给您推荐更合适的职位"

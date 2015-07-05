@@ -1,16 +1,16 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
-
+  after_filter :update_resume, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+   end
 
   # GET /resource/edit
   # def edit
@@ -47,12 +47,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_sign_up_path_for(resource)
+     jobs_path
+   end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  protected
+
+  def update_resume
+    if resource.persisted? # user is created successfuly
+      resume = Resume.find(resource.resume_id)
+      resume.update(user_id: resource.id)      
+    end
+  end
 end

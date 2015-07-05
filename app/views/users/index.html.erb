@@ -10,6 +10,7 @@
       <th><%= model_class.human_attribute_name(:job) %></th>
       <th><%= model_class.human_attribute_name(:tel) %></th>
       <th><%= model_class.human_attribute_name(:country) %></th>
+      <th><%= model_class.human_attribute_name(:resume_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th></th>
     </tr>
@@ -22,6 +23,11 @@
 		<td><%= user.job%></td>
 		<td><%= user.tel%></td>
 		<td><%= user.country%></td>
+    <td>
+    <% if user.resume_id %>
+    <%= link_to( Resume.find(user.resume_id).path, @resumePath+Resume.find(user.resume_id).path  )%>
+    <% end %>
+    </td>
 		<td><%= DateTime.parse(user.updated_at.to_s).strftime('%Y-%m-%d').to_s%></td>
 		<td></td>
 	</tr>
