@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150704103126) do
+ActiveRecord::Schema.define(version: 20150705045932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20150704103126) do
   create_table "admin_setting_provinces", force: :cascade do |t|
     t.string   "name"
     t.string   "en"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "applications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "resume_id"
+    t.integer  "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
