@@ -1,0 +1,38 @@
+<%- model_class = Ad -%>
+<div class="page-header">
+  <h1>首页广告位</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="hidden"><%= model_class.human_attribute_name(:page) %></th>
+      <th>图片地址</th>
+      <th>链接地址</th>
+      <th>更新时间</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ads.each do |ad| %>
+      <tr>
+        <td class="hidden"><%= ad.page %></td>
+        <td><%= ad.img %></td>
+        <td><%= ad.link %></td>
+        <td><%=l ad.updated_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ad_path(ad), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ad_path(ad),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger hidden' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ad_path,
+            :class => 'btn btn-primary hidden' %>

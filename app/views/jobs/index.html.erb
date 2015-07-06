@@ -20,7 +20,7 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= link_to job.id, job_path(job) %></td>
-        <td><%= job.title %></td>
+        <td><%= link_to job.title, job_path(job) %></td>
         <td><%= job.salary %></td>
         <td><%= job.endDate %></td>
         <td><%= Admin::Setting::City.find(job.admin_setting_city_id).name %></td>

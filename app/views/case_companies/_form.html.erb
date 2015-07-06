@@ -16,42 +16,42 @@
   <% end %>
 
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <label class="control-label">公司名称</label>
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
     <%= error_span(@case_company[:name]) %>
   </div>
   <div class="control-group">
-    <%= f.label :img, :class => 'control-label' %>
+    <label class="control-label">公司Logo (200*80px)</label>
     <div class="controls">
       <%= f.text_field :img, :class => 'form-control' %>
     </div>
     <%= error_span(@case_company[:img]) %>
   </div>
   <div class="control-group">
-    <%= f.label :requirement, :class => 'control-label' %>
+    <label class="control-label">招聘需求</label>
     <div class="controls">
       <%= f.text_field :requirement, :class => 'form-control' %>
     </div>
     <%= error_span(@case_company[:requirement]) %>
   </div>
   <div class="control-group">
-    <%= f.label :usage, :class => 'control-label' %>
+    <label class="control-label">产品使用</label>
     <div class="controls">
       <%= f.text_field :usage, :class => 'form-control' %>
     </div>
     <%= error_span(@case_company[:usage]) %>
   </div>
   <div class="control-group">
-    <%= f.label :effect, :class => 'control-label' %>
+    <label class="control-label">招聘效果</label>
     <div class="controls">
       <%= f.text_field :effect, :class => 'form-control' %>
     </div>
     <%= error_span(@case_company[:effect]) %>
   </div>
   <div class="control-group">
-    <%= f.label :lang, :class => 'control-label' %>
+    <label class="control-label">语言</label>
     <div class="controls">
       <%= f.select(:lang, [["CN","cn"],["EN","en"]],{},{:class => 'form-control'}) %>
     </div>

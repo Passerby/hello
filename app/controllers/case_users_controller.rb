@@ -1,6 +1,7 @@
 class CaseUsersController < ApplicationController
   before_action :set_case_user, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  before_action :authenticate_jobposter!
   # GET /case_users
   # GET /case_users.json
   def index

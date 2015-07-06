@@ -1,6 +1,7 @@
 class CaseCompaniesController < ApplicationController
   before_action :set_case_company, only: [:show, :edit, :update, :destroy]
   layout 'admin'
+  before_action :authenticate_jobposter!
 
   # GET /case_companies
   # GET /case_companies.json

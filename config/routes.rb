@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :ads
   get 'my_info/index', to: 'my_info#index', as: 'myInfo'
 
   get 'resume/index'
