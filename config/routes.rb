@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'logined/user'
+
   resources :ads
   get 'my_info/index', to: 'my_info#index', as: 'myInfo'
 
