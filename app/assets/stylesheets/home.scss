@@ -150,22 +150,23 @@
   color:lighten($c1, 30%);
     }
 }
-.line{ height:1px;background-color:$c1;margin-top:10px;}
+.line{ height:1px;background-color:$c1;}
 h2{margin-bottom:30px;}
 
 form .btn{
       padding-left: 30px;
   padding-right: 30px;
 }
-.banner{
-    height:427px;
-}
+
 .job-banner{
     background:url(/assets/b_search.png) no-repeat center center;
+    height:151px;
 }
 .sign-banner{
     background:url(/assets/b_sign_in.png) no-repeat center center;
+    height:177px;
 }
 .login-banner{
     background:url(/assets/b_login.jpg) no-repeat center center;
+    height:177px;
 }
