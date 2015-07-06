@@ -24,7 +24,7 @@
 		<td><%= user.tel%></td>
 		<td><%= user.country%></td>
     <td>
-    <% if user.resume_id %>
+    <% if user.resume_id !='' %>
     <%= link_to( Resume.find(user.resume_id).path, @resumePath+Resume.find(user.resume_id).path  )%>
     <% end %>
     </td>

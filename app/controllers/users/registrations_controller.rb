@@ -59,7 +59,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resume
     if resource.persisted? # user is created successfuly
-      if resource.resume_id
+    #  binding.pry
+      if resource.resume_id != ''
         resume = Resume.find(resource.resume_id)
         resume.update(user_id: resource.id)      
       end

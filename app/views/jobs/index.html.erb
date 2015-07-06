@@ -35,7 +35,8 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= paginate @jobs %>
+<div><%= link_to t('.new', :default => t("helpers.links.new")),
             new_job_path,
-            :class => 'btn btn-primary' %>
+            :class => 'btn btn-primary' %></div>
+
