@@ -30,6 +30,9 @@ position:relative;
 	 position:absolute;
 	 top:-40px;
 	 left:50px;
+	 -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  	 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  	 border-radius: 5px;
 	}
 	.margin-top{
 		margin-top:20px;
