@@ -10,14 +10,24 @@ class JobsController < ApplicationController
 
   def last
     @job = Job.last
-    @jobs = Job.all
+    @jobs = Job.page params[:page]
+    if params[:page]
+      @page = params[:page]
+    else
+      @page = "1"
+    end
     render 'jobs/show'
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @jobs = Job.all
+    @jobs = Job.page params[:page]
+    if params[:page]
+      @page = params[:page]
+    else
+      @page = "1"
+    end
   end
 
   # GET /jobs/new

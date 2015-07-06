@@ -1,0 +1,2 @@
+$('#jdList').html('<%= escape_javascript render :partial => "jobs/list", locals: {jobs: @jobs, page: @page } %>');
+$('#paginator').html('<%= escape_javascript(paginate(@jobs, :remote => true).to_s) %>');

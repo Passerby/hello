@@ -1,28 +1,14 @@
 <%- model_class = Job -%>
-<div class="jd">
+<div class="jd" id="jd">
 <div class="row">
 <div class="col-sm-4">
-<div class="jd-list">   
-<%= render ("jobs/list") %>
-<nav>
-  <ul class="pagination">
-    <li class="disabled">
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<div class="jd-list" id="jdList">   
+
+<%= render partial: "jobs/list", locals: { jobs: @jobs, page: @page } %>
+
+</div>
+<div id="paginator">
+  <%= paginate @jobs, :remote => true %>
 </div>
 </div>
 <div class="jd-content col-sm-8">
