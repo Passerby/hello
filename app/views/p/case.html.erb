@@ -2,14 +2,17 @@
 <table class="table case-table">
   <tbody>
     <% @case_users.each do |case_user| %>
-      <tr style="height:100px;">
-        <td width="13%"><img src="<%= case_user.img%>" width="100px"></td>
-        <td width="13%">
-          <div><%= case_user.name %></div>
+      <tr style="height:214px;">
+        <td width="130" style="padding-left:20px"><img src="<%= case_user.img%>" width="130" height="130"></td>
+        <td width="190" class="case-user">
+          <div style="width:120px;text-align: center;">  
+          <div style="line-height:3"><%= case_user.name %></div>
           <div><%= case_user.company %></div>
           <div><%= case_user.title %></div>
+          </div>
+          
         </td>
-        <td style="text-align: left;"><%= sanitize case_user.content.gsub(/\n/, '<br/>') %></td>
+        <td style="text-align: left;color:#fff;"><%= sanitize case_user.content.gsub(/\n/, '<br/>') %></td>
       </tr>
     <% end %>
   </tbody>
