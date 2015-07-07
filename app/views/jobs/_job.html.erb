@@ -1,6 +1,6 @@
 <%- model_class = Job -%>
 <div class="jd-action">
-      <%= link_to t('apply'), '#', :class=>'btn btn-primary jd-apply' %>
+      <%= link_to t('apply'), user_logined_path+"?job_id="+@job.id.to_s, remote: true , :class=>'btn btn-primary jd-apply' %>
       <%= link_to t('save'), '#', :class=>'jd-btn' %>
       <%= link_to t('share'), '#', :class=>'jd-btn' %>
 </div>
@@ -48,7 +48,7 @@
 <% end %>
 <br/>
 <br/>
-<%= link_to t('apply'), user_logined_path+"?job_id="+@job.id.to_s, remote: true , class: 'btn btn-primary btn-lg big-btn', id: "logined" %>
+<%= link_to t('apply'), user_logined_path+"?job_id="+@job.id.to_s, remote: true , class: 'btn btn-primary btn-lg big-btn' %>
 
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-md">
