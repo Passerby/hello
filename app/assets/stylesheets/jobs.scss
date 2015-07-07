@@ -37,4 +37,32 @@
      color:$c1;
     }
 }
+.modal-header{
+    background-color:$c1;
+    color:#fff;
+    border-radius: 6px 6px 0 0;
+}
+.job-modal-content{
+    height: 220px;
+}
+.modal-body{
+    .popup-alert{
+        line-height: 50px;
+        text-align: center;
+        font-size: 1.5em;
+        .fa{
+            color:$c1; padding-right:10px;
+        }
+    }
+
+}
+.apply-bg{
+  width: 178px;
+  top: -89px;
+  height: 100px;
+    position:absolute;
+    background:url(/assets/application2.png) no-repeat center center;
+
+}
+
 

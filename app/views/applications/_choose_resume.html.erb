@@ -1,0 +1,40 @@
+      <div class="apply-bg"></div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">职位申请</h4>
+      </div>
+      <div class="modal-body">
+        
+<%= form_for application,remote: true, :html => { :class => "form-horizontal form" } do |f| %>
+
+ <% if hasResume %>
+ <div class="form-group">
+    <label class="col-sm-4 control-label">选择简历</label>
+    <div class="controls col-sm-6">
+      <%= f.collection_select(:resume_id, Resume.where(user_id: current_user.id), :id, :name,{}, {:class => 'form-control'}) %>
+    </div>
+  </div>
+<% else %>
+   <div class="form-group">
+    <label class="col-sm-4 control-label">上传简历</label>
+    <div class="controls col-sm-6">
+      <button id="pickfiles" type="button" class="btn btn-default"><%= t("uploadResume")%></button>
+      <div id="resumeName"></div>
+      <%= f.text_field :resume_id, :class=>'form-control hidden', id:"resumeId" %>
+    </div>
+  </div>
+<% end %>
+
+  <%= f.text_field :job_id, :class=>'hidden', value: job_id %>
+  <div class="form-group" id="applyJob">
+  	<div class="col-sm-offset-4 col-sm-9">
+      <%= f.submit "申请职位", class:'btn btn-primary' %>
+    </div>
+  </div>
+
+<% end %>
+
+      </div>
+<%= javascript_include_tag "/js/qiniu.min" %>
+<%= javascript_include_tag "/js/plupload.full.min" %>
+<script type="text/javascript" src="/js/upload.js"></script>

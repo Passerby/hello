@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
 
-  get 'logined/user'
+#  post 'applications/create'
+  resources :applications, only: [ :index,:show,:create, :new]
+
+  get 'logined/user', as: 'user_logined'
 
   resources :ads
   get 'my_info/index', to: 'my_info#index', as: 'myInfo'
@@ -25,9 +28,7 @@ Rails.application.routes.draw do
   get 'p/service', to: 'p#service', as: 'service'
   get 'p/uptoken', to: 'p#uptoken'
   post 'resume/create', to: 'resume#create'
-
-#  get 'users', to: 'users/index', as: 'users'
-
+  
   get 'jobs/last', to: 'jobs#last', as: 'lastjob'
   resources :jobs
 

@@ -6,7 +6,9 @@ class ResumeController < ApplicationController
   def create
 
     @resume = Resume.new(resume_params)
-
+    if user_signed_in?
+      @resume.user_id = current_user.id
+    end
 
       if @resume.save
 
@@ -16,7 +18,6 @@ class ResumeController < ApplicationController
         }
      #   format.json { render :show, status: :created, location: @job }
       else
-
         render json: {"success": false}
       end
  
@@ -25,7 +26,7 @@ class ResumeController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def resume_params
-      params.require(:resume).permit(:path, :user_id)
+      params.require(:resume).permit(:path, :user_id, :name)
     end
 
 end

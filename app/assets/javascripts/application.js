@@ -18,3 +18,7 @@ function setCookie(c_name, value, expiredays) {
     var exdate = new Date();
     document.cookie = c_name + "="+ value +"; path=/";
 }
+
+$(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
+    $(".alert-success").alert('close');
+});

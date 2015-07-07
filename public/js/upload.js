@@ -52,17 +52,20 @@ var uploader = Qiniu.uploader({
             // var sourceLink = domain + res.key; 获取上传成功后的文件的Url
            // rusume[path]:工程师
             var responce = JSON.parse(info);
+            //get file name
+            var index = responce.key.lastIndexOf("_");
+            var name = responce.key.substr(0, index);
+
             $.post("../resume/create", {
                     resume: {
-                        path: responce.key
+                        path: responce.key,
+                        name: name
                     }
                 })
                 .done(function(data) {
                     $("#resumeId").val(data.id);
-                    var index = data.path.lastIndexOf("_");
-                    var name = data.path.substr(0, index);
                     $("#resumeName").html(name);
-                  //  alert("Data Loaded: " + data);
+                    $("#applyJob").removeClass('hidden');
                 });
 
 

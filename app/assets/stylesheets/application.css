@@ -26,20 +26,18 @@
     color: #fff;
 }
 
-@media (min-width: 768px) {
     .nav.navbar-nav {
         float: right;
     }
     .hp-foot-nav {
         width: 60%;
     }
-}
 
-@media (min-width: 1200px) {
+
     .container {
         width: 984px;
     }
-}
+
 
 .navbar .navbar-brand {
     background: url(/assets/logo.png) no-repeat;
@@ -66,5 +64,4 @@
 .center{
     margin: 0 auto;
 }
-
-
+.modal-dialog{margin-top: 200px;}

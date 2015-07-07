@@ -1,0 +1,7 @@
+$('.modal-content').
+html('<%= escape_javascript render :partial => "applications/choose_resume", locals: { application: @application, hasResume: @hasResume, job_id: @job_id } %>');
+$('.modal').modal();
+
+<% if !@hasResume %>
+ $('#applyJob').addClass('hidden');
+<% end %>
