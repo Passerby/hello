@@ -22,11 +22,9 @@ class ApplicationsController < ApplicationController
   end
 
   def index
-  	@applications = Application.all
-  end
-
-  def new
-  	@application = Application.new
+    job_id = params[:job_id]
+  	@applications = Application.where(job_id: job_id)
+    @path = Rails.application.config.resumePath
   end
 
   private

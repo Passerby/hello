@@ -1,27 +1,31 @@
 <div class="page-header">
-  <h1>首页广告位</h1>
+  <h1>职位申请</h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>用户</th>
+      <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:email) %></th>
+      <th><%= User.human_attribute_name(:job) %></th>
+      <th><%= User.human_attribute_name(:tel) %></th>
+      <th><%= User.human_attribute_name(:country) %></th>
       <th>简历</th>
-      <th>职位</th>
       <th>时间</th>
     </tr>
   </thead>
   <tbody>
     <% @applications.each do |app| %>
       <tr>
-        <td><%= app.user_id %></td>
-        <td><%= app.resume_id %></td>
-        <td><%= app.job_id %></td>
+        <td><%= User.find(app.user_id).name %></td>
+        <td><%= User.find(app.user_id).email %></td>
+        <td><%= User.find(app.user_id).job %></td>
+        <td><%= User.find(app.user_id).tel %></td>
+        <td><%= User.find(app.user_id).country %></td>
+
+        <td><%= link_to Resume.find(app.resume_id).name, @path+Resume.find(app.resume_id).path,target: "_blank" %></td>
         <td><%= app.created_at %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_application_path,
-            :class => 'btn btn-primary hidden' %>

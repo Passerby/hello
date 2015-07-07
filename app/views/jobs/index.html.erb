@@ -12,6 +12,7 @@
       <th><%= model_class.human_attribute_name(:admin_setting_city_id) %></th>
       <th><%= model_class.human_attribute_name(:company_id) %></th>
       <th><%= model_class.human_attribute_name(:jobposter_id) %></th>
+      <th>申请</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th></th>
     </tr>
@@ -26,6 +27,7 @@
         <td><%= Admin::Setting::City.find(job.admin_setting_city_id).name %></td>
         <td><%= Company.find(job.company_id).name %></td>
         <td><%= Jobposter.find(job.jobposter_id).email %></td>
+        <td><%= link_to Application.where(job_id: job.id).count, applications_path+"?job_id="+job.id.to_s %></td>
         <td><%= job.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
