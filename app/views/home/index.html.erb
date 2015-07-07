@@ -29,12 +29,12 @@
 <div class="hp-job-border">
 <% @jobs.each do |job| %>
 <div class="row hp-joblist">
-	<div class="col-sm-6">
+	<div class="col-sm-5">
 		<span class="value-desc">
 			<%= Job.human_attribute_name(:title) %>
 		</span>
 		<%= link_to job.title, job %></div>
-	<div class="col-sm-3">
+	<div class="col-sm-4">
 		<span class="value-desc">
 			<%= Job.human_attribute_name(:salary) %>
 		</span>
