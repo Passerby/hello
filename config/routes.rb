@@ -48,19 +48,15 @@ Rails.application.routes.draw do
     end
   end
 
-
   #  devise_for :users
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
 
-
-
+  post 'save_favorite_job', to: 'users#save_favorite_job', as: 'save_favorite_job'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -55,6 +55,7 @@ en:
   jobReq: "职位要求"
   jobComment: "顾问推荐"
   apply: "申请"
+  save: "收藏"
 
   passwordLen: "密码长度至少为%{len}"
   helpers:
