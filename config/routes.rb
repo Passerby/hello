@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  # You can have the root of your site routed with "root"
+   root 'home#index'
 
-
-#  post 'applications/create'
+  #  post 'applications/create'
   resources :applications, only: [ :index, :create]
 
   get 'logined/user', as: 'user_logined'
@@ -34,40 +35,23 @@ Rails.application.routes.draw do
 
   resources :companies
   devise_for :jobposters
-  resources :companies
+  # resources :companies
+
   namespace :admin do
     namespace :setting do
       resources :job_titles
-    end
-  end
-  namespace :admin do
-    namespace :setting do
       resources :industries
-    end
-  end
-  namespace :admin do
-    namespace :setting do
       resources :experiences
-    end
-  end
-  namespace :admin do
-    namespace :setting do
       resources :educations
-    end
-  end
-  namespace :admin do
-    namespace :setting do
       resources :cities
-    end
-  end
-  namespace :admin do
-    namespace :setting do
       resources :provinces
     end
   end
-#  devise_for :users
+
+
+  #  devise_for :users
   devise_for :users, controllers: {
-        registrations: 'users/registrations'
+    registrations: 'users/registrations'
   }
 
 
@@ -76,8 +60,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-   root 'home#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

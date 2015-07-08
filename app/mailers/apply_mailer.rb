@@ -1,9 +1,11 @@
 class ApplyMailer < ApplicationMailer
-
-
-
-  def welcome_email()
+  def post_user(user)
     @url  = 'http://example.com/login'
-    mail(to: "304328540@qq.com", subject: 'Welcome to My Awesome Site')
+    mail(to: user.email, subject: 'You applied a job')
+  end
+
+  def post_jobposter(jobposter)
+    @url  = 'http://example.com/login'
+    mail(to: jobposter.email, subject: 'Someone apply your job')
   end
 end
