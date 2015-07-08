@@ -56,4 +56,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Delay job
+gem 'resque', '1.25.2', require: 'resque/server'
+gem 'resque-scheduler'
+
 ruby "2.2.2"

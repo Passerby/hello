@@ -54,8 +54,9 @@
 </div>
 <div class='hp-block-title-events'></div>
 
-<%= link_to image_tag(@ad.img, :border => 0), @ad.link %>
-	
+<%- if @ad.present? && @ad.img.present? %>
+  <%= link_to image_tag(@ad.img, :border => 0), @ad.link %>
+<% end %>
 <div class='hp-block-title-vip'></div>
 <div class="hp-ad2">
 	<%= image_tag("vip#{I18n.locale}.jpg", width:'100%') %>

@@ -74,6 +74,6 @@ class Admin::Setting::IndustriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_setting_industry_params
-      params.require(:admin_setting_industry).permit(:name,:en)
+      params.require(:admin_setting_industry).permit(:name, :en, :parent_id)
     end
 end

@@ -16,6 +16,13 @@
   <% end %>
 
   <div class="control-group">
+    <label class="control-label">所属一级目录</label>
+    <div class="controls">
+      <%= f.collection_select(:parent_id, Admin::Setting::Industry.where(parent_id: nil), :id, :name, { prompt: "一级行业" }, {:class => 'form-control'}) %>
+    </div>
+    <%= error_span(@admin_setting_industry[:name]) %>
+  </div>
+  <div class="control-group">
     <label class="control-label">中文</label>
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
