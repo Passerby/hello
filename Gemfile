@@ -57,7 +57,7 @@ group :production do
 end
 
 # Delay job
-gem 'resque', '1.25.2', require: 'resque/server'
-gem 'resque-scheduler'
+gem 'sidekiq'
+
 
 ruby "2.2.2"

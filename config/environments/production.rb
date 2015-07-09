@@ -81,9 +81,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
      :address => ENV['Mail_address'],
-     :port => 25,
-     :domain => "euchost.com",
-     :authentication => :login,
+     :port => ENV['Mail_port'],
+     :domain => ENV['Mail_domain'],
+     :authentication => ENV['Mail_authentication'],
      :user_name => ENV['Mail_user_name'],
      :password => ENV['Mail_pass'],
      :enable_starttls_auto => true
