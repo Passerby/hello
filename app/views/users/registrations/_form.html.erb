@@ -96,6 +96,4 @@
       <%= f.text_area :summmary, :class => 'form-control',  :rows => "5" %>
     </div>
   </div>
-<%= javascript_include_tag "/js/qiniu.min" %>
-<%= javascript_include_tag "/js/plupload.full.min" %>
-<script type="text/javascript" src="/js/upload.js"></script>
+<%= render("shared/qiniu_upload") %>
