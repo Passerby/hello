@@ -57,7 +57,7 @@ group :production do
 end
 
 # Delay job
-gem 'resque', '1.25.2', require: 'resque/server'
-gem 'resque-scheduler'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 ruby "2.2.2"
