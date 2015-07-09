@@ -7,9 +7,14 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    if request.xhr? 
+      self.resource = warden.authenticate!(auth_options)
+      render json: { data: 'ok' }
+    else
+      super
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

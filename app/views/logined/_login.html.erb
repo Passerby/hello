@@ -1,7 +1,33 @@
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">登录</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel">登录</h4>
+</div>
+<div class="modal-body clearfix">
+  <div class="form-group">
+    <label for="accountEmail"><%= t('email') %></label>
+    <input type="text" name="accountEmail" id="accountEmail" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="accountPassword"><%= t('password') %></label>
+    <input type="password" name="accountPassword" id="accountPassword" class="form-control" />
+  </div>
+  <button id="js-submit-login" class="btn btn-default" data-disable-with=<%= "#{t('login')}..." %>><%= t('login') %></button>
+</div>
+
+<script type="text/javascript">
+  
+  $('#js-submit-login').on('click', function(e) {
+    $.ajax({
+      url: '/users/sign_in',
+      method: 'post',
+      data: { "user[email]": $('#accountEmail').val(), "user[password]": $('#accountPassword').val()},
+      success: function(data) {
+        alert('sign_in success');
+        $('.modal').modal('hide');
+      },
+      error: function(data) {
+        alert('email or password invalid');
+      }
+    });
+  });
+</script>

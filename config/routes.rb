@@ -50,7 +50,8 @@ Rails.application.routes.draw do
 
   #  devise_for :users
   devise_for :users, controllers: {
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   post 'save_favorite_job', to: 'users#save_favorite_job', as: 'save_favorite_job'
