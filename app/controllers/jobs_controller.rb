@@ -4,8 +4,15 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
- #   @jobs = Job.all
-    @jobs = Job.page params[:page]
+    @tasks_grid = initialize_grid(
+      Job.eager_load(:city).eager_load(:company).eager_load(:jobposter).select('jobs.*, (select COUNT(1) from applications where applications.job_id = jobs.id) AS applications_count'),
+      order: 'jobs.id',
+      order_direction: 'desc',
+      custom_order: {
+        'applications.id' => 'applications_count'
+      },
+      per_page: 20
+    )
     render layout: "admin"
   end
 
@@ -93,6 +100,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :endDate, :admin_setting_city_id, :company_id, :jobposter_id)
+      params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :admin_setting_city_id, :company_id, :jobposter_id)
     end
 end

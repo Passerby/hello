@@ -60,4 +60,7 @@ end
 gem 'delayed_job_active_record'
 gem 'daemons'
 
+# table
+gem "wice_grid", '3.4.2'
+
 ruby "2.2.2"

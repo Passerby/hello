@@ -2,43 +2,48 @@
 <div class="page-header">
   <h1>职位</h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:salary) %></th>
-      <th><%= model_class.human_attribute_name(:endDate) %></th>
-      <th><%= model_class.human_attribute_name(:admin_setting_city_id) %></th>
-      <th><%= model_class.human_attribute_name(:company_id) %></th>
-      <th><%= model_class.human_attribute_name(:jobposter_id) %></th>
-      <th>申请</th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= link_to job.id, job_path(job) %></td>
-        <td><%= link_to job.title, job_path(job) %></td>
-        <td><%= job.salary %></td>
-        <td><%= job.endDate %></td>
-        <td><%= Admin::Setting::City.find(job.admin_setting_city_id).name %></td>
-        <td><%= Company.find(job.company_id).name %></td>
-        <td><%= Jobposter.find(job.jobposter_id).email %></td>
-        <td><%= link_to Application.where(job_id: job.id).count, applications_path+"?job_id="+job.id.to_s %></td>
-        <td><%= job.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_job_path(job), :class => 'btn btn-default btn-xs' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= paginate @jobs %>
+<%= grid(@tasks_grid, show_filters: :always) do |g|
+
+  g.column name: model_class.human_attribute_name(:id), attribute: 'id' do |job|
+    job.id
+  end
+
+  g.column name: model_class.human_attribute_name(:title), attribute: 'title' do |job|
+    job.title
+  end
+
+  g.column name: model_class.human_attribute_name(:salary), attribute: 'salary' do |job|
+    job.salary
+  end
+
+  g.column name: model_class.human_attribute_name(:end_date), attribute: 'end_date' do |job|
+    job.end_date
+  end
+
+  g.column name: model_class.human_attribute_name(:admin_setting_city_id), model: 'Admin::Setting::City', attribute: 'name' do |job|
+    job.city.name
+  end
+
+  g.column name: model_class.human_attribute_name(:company_id), model: 'Company', attribute: 'name' do |job|
+    job.company.name
+  end
+
+  g.column name: model_class.human_attribute_name(:jobposter_id), model: 'Jobposter', attribute: 'email' do |job|
+    job.jobposter.email
+  end
+
+  g.column name: '申请', model: 'Application', attribute: 'id', filter: false do |job|
+    link_to job.applications.count, applications_path(job_id: job.id)
+  end
+
+  g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at' do |job|
+    job.created_at
+  end
+
+  g.column do |job|
+    link_to t('.edit', :default => t("helpers.links.edit")), edit_job_path(job), :class => 'btn btn-default btn-xs'
+  end
+end -%>
 <div><%= link_to t('.new', :default => t("helpers.links.new")),
           new_job_path,
           :class => 'btn btn-primary' %></div>
-

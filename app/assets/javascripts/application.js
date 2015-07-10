@@ -12,6 +12,7 @@
 //
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require wice_grid
 //= require_tree .
 
 function setCookie(c_name, value, expiredays) {
