@@ -80,7 +80,7 @@ zh:
         admin_setting_city_id: "地点："
         company_id: "公司："
         created_at: "创建时间："
-        endDate: "截止日期："
+        end_date: "截止日期："
         jobposter_id: "发布人："
         description: "职位描述："
         requirement: "职位要求："

@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "zyune@qq.com"
+  default from: ENV['Mail_address']
   layout 'mailer'
 end
