@@ -48,6 +48,16 @@ zh:
   apply: "申请"
   save: "收藏"
 
+  my_applications: "我的申请"
+  my_favorites: "我的收藏"
+  my_info: "个人中心"
+  my_resumes: "我的简历"
+  preview: '预览'
+  application created_at: "申请日期"
+  application company: "申请公司"
+  application status: "申请状态"
+  have read: "已读"
+
   passwordLen: "密码长度至少为%{len}"
   helpers:
     label:

@@ -1,6 +1,14 @@
-<div>My resume</div>
+<%= render 'link_header' %>
+<div class="my-info-content-page-header">
+  <%= t('my_info')  %>
+</div>
 
-
-<div>我申请的职位</div>
-
-<div>我搜藏的职位</div>
+<div class="my-info-content clearfix">
+  <div class="thumbnail my-info-avatar-image pull-left"> <img alt="avatar image" > </div>
+  <div class="my-info-detail pull-left">
+    <div><%= current_user.name %></div>
+    <div><%= current_user.tel %></div>
+    <div><%= current_user.email %></div>
+    <div><%= current_user.job %></div>
+  </div>
+</div>

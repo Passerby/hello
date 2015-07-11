@@ -1,3 +1,45 @@
 // Place all the styles related to the MyInfo controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.my-info-link {
+  color: #f07f1d;
+  font-size: 18px;
+  margin: 0 8px;
+}
+
+.my-info-content-page-header {
+  width: 100%;
+  background-color: #f07f1d;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 15px;
+  margin: 15px 0 0 0;
+}
+
+.my-info-content {
+  margin: 0;
+  border: 1px solid #000000;
+  border-top: 0;
+  min-height: 300px;
+  padding: 15px;
+  div {
+    padding: 10px 0;
+    span {
+      a {
+        color: #f07f1d;
+      }
+    }
+  }
+}
+
+.my-info-avatar-image {
+  height: 200px;
+  width: 150px;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+
+.my-info-detail {
+  margin-left: 50px;
+}
