@@ -17,7 +17,7 @@
         <td><%= city.id %></td>
         <td><%= city.name %></td>
         <td><%= city.en %></td>
-        <td><%= Admin::Setting::Province.find(city).name %></td>
+        <td><%= city.province.name %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_admin_setting_city_path(city), :class => 'btn btn-default btn-xs' %>

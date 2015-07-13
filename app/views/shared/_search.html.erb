@@ -1,31 +1,62 @@
 <div class='main-search center'>
 
-<form role="form" class="form-inline center" style="width:80%;"> 
+  <form role="form" class="form-inline center" style="width:80%;"> 
+    <div class="row">
+      <div class="col-sm-3">
+        <select id="city_name" class="form-control pull-left" name="city[name]">
+          <option value="">全部</option>
+          <%= options_for_select( Admin::Setting::City.where(id: Job.all.pluck(:admin_setting_city_id).uniq).select(:id, :name).collect {|p| [ p.name, p.id ] }, params[:city_name])%>
+        </select>
+      </div>
 
-<div class="row">
-  <div class="col-sm-5">
-      <div class="form-group has-feedback has-feedback-left">
-    <label class="control-label sr-only">Position</label>
-    <div class="inline-feedback">
-      <input type="text" class="form-control input-lg" placeholder="Position" />
-      <i class="form-control-feedback fa fa-search"></i>
+      <div class="col-sm-5">
+        <div class="form-group has-feedback has-feedback-left">
+          <label class="control-label sr-only">Keywords</label>
+          <div class="inline-feedback">
+            <input type="text" name="keywords" id="keywords" class="form-control input-lg" placeholder="Keywords" value= <%= params[:keywords] %> />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary btn-lg">Search</button>
+      </div>
     </div>
-  </div>
-  </div>
-  <div class="col-sm-5">
-    <div class="form-group has-feedback has-feedback-left">
-    <label class="control-label sr-only">Location</label>
-    <div class="inline-feedback">
-      <input type="text" class="form-control input-lg" placeholder="Location" />
-      <i class="form-control-feedback fa fa-map-marker"></i>
-    </div>
-  </div>
-  </div>
-  <div class="col-sm-2">
-    <button type="submit" class="btn btn-primary btn-lg">Search</button>
-  </div>
+  </form>
+
 </div>
 
-</form>
+<script type="text/javascript" >
 
-</div>
+function insertParam(key, value)
+{
+    key = encodeURI(key); value = encodeURI(value);
+
+    var kvp = document.location.search.substr(1).split('&');
+
+    var i=kvp.length; var x; while(i--) 
+    {
+        x = kvp[i].split('=');
+
+        if (x[0]==key)
+        {
+            x[1] = value;
+            kvp[i] = x.join('=');
+            break;
+        }
+    }
+
+    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+
+    //this will reload the page, it's likely better to store this until finished
+    document.location.search = kvp.join('&'); 
+};
+
+$('#city_name').on('change', function(e) {
+  if ($(this).val() == '全部') {
+    insertParam('city_name', '');
+  } else {
+    insertParam('city_name', $(this).val());
+  }
+});
+</script>

@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 
   def last
     @job = Job.last
-    @jobs = Job.page params[:page]
+    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
     if params[:page]
       @page = params[:page]
     else
@@ -30,7 +30,7 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @jobs = Job.page params[:page]
+    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
     if params[:page]
       @page = params[:page]
     else
