@@ -21,7 +21,7 @@ class Job < ActiveRecord::Base
     if city_id.blank?
       all
     else
-      where(admin_setting_city_id: city_id)
+      eager_load(:job_cities).where(job_cities: { city_id: city_id })
     end
   end
 
