@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'logined/user', as: 'user_logined'
 
   resources :ads
+
   get 'my_info/index', to: 'my_info#index', as: 'myInfo'
+  get 'my_info/resumes', to: 'my_info#resumes', as: 'my_resumes'
+  get 'my_info/favorites', to: 'my_info#favorites', as: 'my_favorites'
+  get 'my_info/applications', to: 'my_info#applications', as: 'my_applications'
 
   get 'resume/index'
 
@@ -45,6 +49,7 @@ Rails.application.routes.draw do
       resources :educations
       resources :cities
       resources :provinces
+      resources :jobposters, only: [:index, :edit, :update]
     end
   end
 
@@ -55,6 +60,7 @@ Rails.application.routes.draw do
   }
 
   post 'save_favorite_job', to: 'users#save_favorite_job', as: 'save_favorite_job'
+  delete 'delete_favorite_job', to: 'users#delete_favorite_job', as: 'delete_favorite_job'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

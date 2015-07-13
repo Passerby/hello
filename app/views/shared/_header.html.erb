@@ -1,25 +1,26 @@
-    <div class='top-nav'><div class="container">
-      <ul class="list-inline">
-<% if user_signed_in? %>
-<li><%= link_to t('logout'), destroy_user_session_path, :method => :delete %></li>
-<% else %>
-<li><%= link_to t('login'), new_user_session_path %></li>
-<li><%= link_to t('register'), new_user_registration_path %></li>
-<% end %>
-                <li><%= link_to 'English', "/?locale=en",id:'langEn' %>
-        <%= link_to '中文', "/?locale=zh", id:'langZh' %></li>
-      </ul></div>
+<div class='top-nav'><div class="container">
+  <ul class="list-inline">
+    <% if user_signed_in? %>
+    <li><%= link_to current_user.email, myInfo_path %></li>
+    <li><%= link_to t('logout'), destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+    <li><%= link_to t('login'), new_user_session_path %></li>
+    <li><%= link_to t('register'), new_user_registration_path %></li>
+    <% end %>
+    <li><%= link_to 'English', "/?locale=en",id:'langEn' %>
+    <%= link_to '中文', "/?locale=zh", id:'langZh' %></li>
+  </ul></div>
+</div>
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "Hello Carre", home_path, class: "navbar-brand" %>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <%= render("shared/nav") %>
     </div>
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <%= link_to "Hello Carre", home_path, class: "navbar-brand" %>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <%= render("shared/nav") %>
-        </div>
-      </div>
-    </div>
+  </div>
+</div>

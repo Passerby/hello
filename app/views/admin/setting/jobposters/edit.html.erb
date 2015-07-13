@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>编辑发布者</h1>
+</div>
+
+<%= form_for @jobposter, url: admin_setting_jobposter_path, :html => { :class => "form-horizontal city" } do |f| %>
+
+  <% if @jobposter.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@jobposter.errors.count, "error") %> prohibited this city from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <% @jobposter.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= check_box_tag :approved, 'yes', @jobposter.approved? %>
+    <label for="approved" class="control-label">认证管理员， 后台登录发布权限</label>
+  </div>
+
+  <div class="control-group">
+    <%= check_box_tag :root_admin, 'yes', @jobposter.root_admin? %>
+    <label for="root_admin" class="control-label">超级管理员， 认证权限</label>
+  </div>
+
+<br/>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+
+<% end %>

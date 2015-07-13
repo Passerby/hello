@@ -63,4 +63,6 @@ gem 'daemons'
 # table
 gem "wice_grid", '3.4.2'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 ruby "2.2.2"

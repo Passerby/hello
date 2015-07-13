@@ -18,6 +18,9 @@
             <li><%= link_to "主要案例", case_users_path %></li>
             <li><%= link_to "其他案例", case_companies_path %></li>
             <li><%= link_to "首页广告位", ads_path %></li>
+            <% if current_jobposter.root_admin? %>
+              <li><%= link_to "发布者", admin_setting_jobposters_path %></li>
+            <% end %>
           </ul>
         </div>
         <div class="col-sm-10 main" style="float:right">
@@ -30,3 +33,5 @@
 <%= javascript_include_tag "application" %>
   </body>
 </html>
+
+<%= yield :js %>

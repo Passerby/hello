@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :resumes
   has_many :favorite_jobs
+  has_many :applications
+
   validates :name, presence: true
   validates :tel, presence: true
   validates :job, presence: true

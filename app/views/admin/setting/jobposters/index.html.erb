@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Setting Job Titles</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('email') %></th>
+      <th><%= t('root_admin') %></th>
+      <th><%= t('approve_admin') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobposters.each do |jobposter| %>
+      <tr>
+        <td><%= jobposter.email %></td>
+        <td>
+          <% if jobposter.root_admin? %>
+            <div><%= t('root_admin') %></div>
+          <% else %>
+            <div><%= t('not_root_admin') %></div>
+          <% end %>
+        </td>
+        <td>
+          <% if jobposter.approved? %>
+            <div><%= t('approved') %></div>
+          <% else %>
+            <div><%= t('not_approved') %></div>
+          <% end %>
+        </td>
+        <td><%= link_to t('Edit'), edit_admin_setting_jobposter_path(jobposter) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,30 @@
+<%= render 'link_header' %>
+
+<div class="my-info-content-page-header">
+  <%= t('my_favorites')  %>
+</div>
+
+<div class="my-info-content">
+  <% @favorite_jobs.each do |f| %>
+    <div class="clearfix">
+      <span class="col-sm-2"><%= f.job.title %></span>
+      <span class="col-sm-3"><%= t('application company') %>: <%= f.job.company.name %></span>
+      <span class="col-sm-3"><%= t('salary') %>: <%= f.job.salary %></span>
+      <span class="col-sm-2"><%= t('city') %> <%= f.job.city.name %></span>
+      <span class="col-sm-1"><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></span>
+      <span class="col-sm-1">
+        <%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete do %>
+         <!--  <i class="glyphicon glyphicon-trash"></i> -->
+         x
+        <% end %>
+      </span>
+    </div>
+  <% end %> 
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content job-modal-content clearfix">
+    </div>
+  </div>
+</div>
