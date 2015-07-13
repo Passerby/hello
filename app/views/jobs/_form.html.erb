@@ -1,6 +1,6 @@
+<% all_cities = Admin::Setting::City.all%>
 <%= form_for @job, :html => { :class => "form-horizontal job" } do |f| %>
-
-    <% if @job.errors.any? %>
+  <% if @job.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
         <h3 class="panel-title"><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h3>
@@ -29,6 +29,19 @@
     </div>
     <%= error_span(@job[:salary]) %>
   </div>
+
+  <div class="form-group">
+    <%= label_tag :all_cities, '选择城市', class: 'col-lg-1 control-label' %>
+    <% if all_cities.present? %>
+      <% all_cities.each do |city| %>
+        <button value="<%= city.id %>" class="btn btn-default js-push" ><%= city.name %></button>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= label_tag :cities, '已选城市', class: 'control-label' %>
+  <%= hidden_field_tag :cities, @job.cities.map{ |c| c.name }.join(','), class: 'form-control tm-input tm-input-success', autocomplete: "off" %>
+
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
@@ -57,13 +70,7 @@
     </div>
     <%= error_span(@job[:end_date]) %>
   </div>
-  <div class="control-group">
-    <%= f.label :city_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.collection_select(:admin_setting_city_id, Admin::Setting::City.all, :id, :name,{}, {:class => 'form-control'}) %>
-    </div>
-    <%= error_span(@job[:city_id]) %>
-  </div>
+
   <div class="control-group">
     <%= f.label :company_id, :class => 'control-label' %>
     <div class="controls">
@@ -78,4 +85,17 @@
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             jobs_path, :class => 'btn btn-default' %>
 
+<% end %>
+
+<%= content_for :js do %>
+  <script type="text/javascript">
+    var tagApi = $(".tm-input").tagsManager({
+      prefilled: $(".tm-input").val().split(',')
+    });
+
+    $('.js-push').on('click', function(e) {
+      e.preventDefault();
+      tagApi.tagsManager("pushTag", $(this).text() );
+    });
+  </script>
 <% end %>

@@ -6,13 +6,16 @@ class Job < ActiveRecord::Base
   belongs_to :jobposter
 
   has_many :applications
+  has_many :job_cities
+  has_many :cities, through: :job_cities
 
   validates :title, presence: true
   validates :salary, presence: true
   validates :description, presence: true
   validates :requirement, presence: true
   validates :company_id, presence: true
-  validates :admin_setting_city_id, presence: true
+  # validates :admin_setting_city_id, presence: true
+  # validates :cities, presence: true
 
   def self.search_city(city_id)
     if city_id.blank?

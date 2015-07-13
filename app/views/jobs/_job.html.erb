@@ -23,7 +23,7 @@
 		<span class="jd-val-desc">
 			<%= model_class.human_attribute_name(:admin_setting_city_id) %>
 		</span>
-		<%= Admin::Setting::City.find(@job.admin_setting_city_id).name %>
+		<%= @job.cities.map{ |c| c.name }.join(', ') %>
 	</div>
 </div>
 

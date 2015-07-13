@@ -1,11 +1,14 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!, :except => [:show, :last]
+  before_action :split_cities, only: [:update, :create]
+
   # GET /jobs
   # GET /jobs.json
   def index
     @tasks_grid = initialize_grid(
-      Job.eager_load(:city).eager_load(:company).eager_load(:jobposter).select('jobs.*, (select COUNT(1) from applications where applications.job_id = jobs.id) AS applications_count'),
+      Job.eager_load(:city).eager_load(:company).eager_load(:jobposter)
+        .select('jobs.*, (select COUNT(1) from applications where applications.job_id = jobs.id) AS applications_count'),
       order: 'jobs.id',
       order_direction: 'desc',
       custom_order: {
@@ -54,13 +57,14 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.jobposter_id = current_jobposter.id
+    @job.cities = @cities if @cities.present?
 
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
         format.json { render :show, status: :created, location: @job }
       else
-        format.html { render :new }
+        format.html { render :new, layout: "admin" }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
@@ -71,11 +75,12 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1.json
   def update
     respond_to do |format|
+      @job.cities = @cities
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
       else
-        format.html { render :edit }
+        format.html { render :edit, layout: "admin" }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
@@ -93,13 +98,20 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :admin_setting_city_id, :company_id, :jobposter_id)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :company_id, :jobposter_id)
+  end
+
+  def split_cities
+    @cities = []
+    if params["hidden-cities"].present?
+      @cities = Admin::Setting::City.where(name: params["hidden-cities"].split(","))
     end
+  end
 end

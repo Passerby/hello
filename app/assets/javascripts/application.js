@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery_ujs
+//= require ./libs/tagmanager
 //= require twitter/bootstrap
 //= require wice_grid
 //= require_tree .

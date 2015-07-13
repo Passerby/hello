@@ -21,7 +21,7 @@
   end
 
   g.column name: model_class.human_attribute_name(:admin_setting_city_id), model: 'Admin::Setting::City', attribute: 'name' do |job|
-    job.city.name
+    job.cities.map{ |c| c.name }.join(', ')
   end
 
   g.column name: model_class.human_attribute_name(:company_id), model: 'Company', attribute: 'name' do |job|
