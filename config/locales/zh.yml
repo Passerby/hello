@@ -74,6 +74,12 @@ zh:
         admin_setting_industry_id: "期望行业："
         summmary: "工作经历摘要："
         remember_me: "自动登录"
+  Edit: "编辑"
+  root_admin: "超级管理员"
+  not_root_admin: "普通发布者"
+  approve_admin: "认证发布者"
+  approved: "已认证"
+  not_approved: "未认证"
   activerecord:
     models:
       user: "用户"

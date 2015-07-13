@@ -49,6 +49,7 @@ Rails.application.routes.draw do
       resources :educations
       resources :cities
       resources :provinces
+      resources :jobposters, only: [:index, :edit, :update]
     end
   end
 
