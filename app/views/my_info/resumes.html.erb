@@ -1,23 +1,26 @@
 <%= render 'link_header' %>
 
-<div class="my-info-content-page-header">
-  <%= t('my_resumes')  %>
-</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('my_resumes')  %></h3>
+  </div>
+  <div class="panel-body">
+  <table class="table table-striped">
+    <% current_user.resumes.each do |r| %>
+    <tr>
+        <td><%= t('preview') %>: <%= link_to r.name, "#{Rails.application.config.resumePath}#{r.path}", target: "_blank" %></td>
+        <td><%= r.created_at.strftime("%Y %b %d")  %></td>
+    </tr>
+    <% end %>
+  </table>
 
-<div class="my-info-content clearfix">
-  <% current_user.resumes.each do |r| %>
-    <div class="clearfix">
-      <span class="col-sm-9"><%= t('preview') %>: <%= link_to r.name, "#{Rails.application.config.resumePath}#{r.path}", target: "_blank" %></span>
-      <span class="col-sm-3"><%= r.created_at.strftime("%Y %b %d")  %></span>
-    </div>
-  <% end %>
-
-  <div class="form-group">
+    <div class="form-group">
     <div class="controls col-sm-5">
       <button id="pickfiles" type="button" class="btn btn-default"><%= t("uploadResume")%></button>
       <div id="resumeName"></div>
       <%= text_field_tag :resume_id, nil, :class=>'form-control hidden', id:"resumeId" %>
     </div>
+  </div>
   </div>
 </div>
 
