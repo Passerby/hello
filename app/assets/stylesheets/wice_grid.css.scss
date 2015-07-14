@@ -62,15 +62,6 @@
     background: transparent url(/assets/icons/grid/arrow_up.gif)   right no-repeat
   }
 
-  .submit.clickable{
-    background: transparent url(/assets/icons/grid/table_refresh.png) no-repeat;
-    @include icon-dimensions;
-  }
-
-  .reset.clickable{
-    background: transparent url(/assets/icons/grid/table.png) no-repeat;
-    @include icon-dimensions;
-  }
 
 
   .wg-show-filter.clickable,
@@ -110,7 +101,7 @@
 
 
   tr.wg-filter-row  input[type=text] {
-    width: 100px;
+
   }
 
   .pagination_status {

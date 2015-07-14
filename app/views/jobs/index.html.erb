@@ -16,9 +16,9 @@
     job.salary
   end
 
-  g.column name: model_class.human_attribute_name(:end_date), attribute: 'end_date', filter: false do |job|
-    job.end_date
-  end
+#  g.column name: model_class.human_attribute_name(:end_date), attribute: 'end_date', filter: false do |job|
+#    job.end_date
+#  end
 
   g.column name: model_class.human_attribute_name(:admin_setting_city_id), model: 'Admin::Setting::City', attribute: 'name' do |job|
     job.cities.map{ |c| c.name }.join(', ')
