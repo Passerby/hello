@@ -1,17 +1,34 @@
+<div class="login-bg"></div>
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <h4 class="modal-title" id="myModalLabel">登录</h4>
 </div>
 <div class="modal-body clearfix">
+
+<div class="row">
+  <div class="col-sm-6">
+    
   <div class="form-group">
-    <label for="accountEmail"><%= t('email') %></label>
-    <input type="text" name="accountEmail" id="accountEmail" class="form-control" />
+    <input type="text" name="accountEmail" id="accountEmail" 
+    class="form-control" placeholder="Email" />
   </div>
   <div class="form-group">
-    <label for="accountPassword"><%= t('password') %></label>
-    <input type="password" name="accountPassword" id="accountPassword" class="form-control" />
+    <input type="password" name="accountPassword" id="accountPassword" 
+    class="form-control" placeholder="Password" />
   </div>
-  <button id="js-submit-login" class="btn btn-default" data-disable-with=<%= "#{t('login')}..." %>><%= t('login') %></button>
+  <div class="text-center"><button id="js-submit-login" class="btn btn-primary btn130" data-disable-with=<%= "#{t('login')}..." %>><%= t('login') %></button></div>
+  
+  </div>
+   <div class="col-sm-6">
+     <div class="text-center" style="height:98px;padding-top: 20px;">
+     还不是HelloCareer的用户么？<br/>
+     立即注册享受一对一VIP猎头服务
+     </div>
+     <div class="text-center"><%= link_to t('register'), new_user_registration_path, :class=>'btn btn-primary btn130' %></div>
+     
+   </div>
+</div>
+
 </div>
 
 <script type="text/javascript">
