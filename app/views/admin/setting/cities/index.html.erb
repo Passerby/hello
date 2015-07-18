@@ -32,6 +32,9 @@
   </tbody>
 </table>
 
+<%= paginate @admin_setting_cities %>
+
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_admin_setting_city_path,
             :class => 'btn btn-primary' %>

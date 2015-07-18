@@ -5,7 +5,7 @@ class Admin::Setting::ProvincesController < ApplicationController
   # GET /admin/setting/provinces
   # GET /admin/setting/provinces.json
   def index
-    @admin_setting_provinces = Admin::Setting::Province.all
+    @admin_setting_provinces = Admin::Setting::Province.all.page(params[:page])
   end
 
   # GET /admin/setting/provinces/1

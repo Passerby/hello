@@ -17,12 +17,12 @@
     </tr>
     <% @favorite_jobs.each do |f| %>
     <tr>
-      <td><%= f.job.title %></td>
+      <td><%= link_to f.job.title, job_path(f.job_id) %></td>
       <td><%= f.job.company.name %></td>
       <td><%= f.job.salary %></td>
       <td><%= f.job.city.name %></td>
       <td><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></td>
-      <td><%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete do %>
+      <td><%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete, data: { confirm: 'Are you sure delete it ?' } do %>
          <i class="fa fa-trash-o"></i>
         <% end %></td>
     </tr>

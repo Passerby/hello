@@ -15,7 +15,7 @@
   	</tr>
   	<% current_user.applications.each do |application| %>
   	<tr>
-  		<td><%=  application.job.title %></td>
+  		<td><%= link_to application.job.title, job_path(application.job_id) %></td>
   		<td><%= application.created_at.strftime("%Y - %b - %d") %></td>
   		<td><%= application.job.company.name %></td>
   		<td><%= t('have read')%></td>

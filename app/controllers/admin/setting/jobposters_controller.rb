@@ -4,7 +4,7 @@ class Admin::Setting::JobpostersController < ApplicationController
   before_action :auth_root_admin?
 
   def index
-    @jobposters = Jobposter.all.order(id: :desc)
+    @jobposters = Jobposter.all.order(id: :desc).page(params[:page])
   end
 
   def edit
@@ -14,8 +14,6 @@ class Admin::Setting::JobpostersController < ApplicationController
   def update
     @jobposter = Jobposter.find(params[:id])
     if params[:approved] == 'yes'
-      @jobposter.approve
-    else
       @jobposter.dis_approve
     end
 

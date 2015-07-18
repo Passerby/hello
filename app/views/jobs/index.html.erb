@@ -9,7 +9,7 @@
   end
 
   g.column name: model_class.human_attribute_name(:title), attribute: 'title' do |job|
-    job.title
+    link_to job.title, job_path(job.id)
   end
 
   g.column name: model_class.human_attribute_name(:salary), attribute: 'salary' do |job|
@@ -43,7 +43,9 @@
   g.column do |job|
     link_to t('.edit', :default => t("helpers.links.edit")), edit_job_path(job), :class => 'btn btn-default btn-xs'
   end
+
+  g.column do |job|
+    link_to t('.destroy', :default => t("helpers.links.destroy")), job_path(job), :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' }
+  end
 end -%>
-<div><%= link_to t('.new', :default => t("helpers.links.new")),
-          new_job_path,
-          :class => 'btn btn-primary' %></div>
+<div><%= link_to t('.new', :default => t("helpers.links.new")), new_job_path, :class => 'btn btn-primary' %></div>

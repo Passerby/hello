@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    root 'home#index'
 
   #  post 'applications/create'
-  resources :applications, only: [ :index, :create]
+  resources :applications, only: [:index, :create]
 
   get 'logined/user', as: 'user_logined'
 
@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'p/service', to: 'p#service', as: 'service'
   get 'p/uptoken', to: 'p#uptoken'
   post 'resume/create', to: 'resume#create'
+  delete 'resume/delete', to: 'resume#destroy'
+  post 'resume/set_default', to: 'resume#set_default'
   
   get 'jobs/last', to: 'jobs#last', as: 'lastjob'
   resources :jobs

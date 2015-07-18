@@ -5,7 +5,7 @@ class Admin::Setting::CitiesController < ApplicationController
   # GET /admin/setting/cities
   # GET /admin/setting/cities.json
   def index
-    @admin_setting_cities = Admin::Setting::City.all
+    @admin_setting_cities = Admin::Setting::City.all.page(params[:page])
   end
 
   # GET /admin/setting/cities/new

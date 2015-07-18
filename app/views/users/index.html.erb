@@ -2,35 +2,34 @@
 <div class="page-header">
   <h1>所有用户</h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:job) %></th>
-      <th><%= model_class.human_attribute_name(:tel) %></th>
-      <th><%= model_class.human_attribute_name(:country) %></th>
-      <th><%= model_class.human_attribute_name(:resume_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-	<tr>
-		<td><%= user.email%></td>
-		<td><%= user.name%></td>
-		<td><%= user.job%></td>
-		<td><%= user.tel%></td>
-		<td><%= user.country%></td>
-    <td>
-    <% if user.resume_id !='' %>
-    <%= link_to( Resume.find(user.resume_id).path, @resumePath+Resume.find(user.resume_id).path  )%>
-    <% end %>
-    </td>
-		<td><%= DateTime.parse(user.updated_at.to_s).strftime('%Y-%m-%d').to_s%></td>
-		<td></td>
-	</tr>
-<% end %>
-  </tbody>
-</table>
+<%= grid(@users, show_filters: :always) do |g|
+
+  g.column name: model_class.human_attribute_name(:email), attribute: 'email' do |u|
+    u.email
+  end
+
+  g.column name: model_class.human_attribute_name(:name), attribute: 'name' do |u|
+    u.name
+  end
+
+  g.column name: model_class.human_attribute_name(:job), attribute: 'job' do |u|
+    u.job
+  end
+
+  g.column name: model_class.human_attribute_name(:tel), attribute: 'tel' do |u|
+    u.tel
+  end
+
+  g.column name: model_class.human_attribute_name(:country), attribute: 'country' do |u|
+    u.country
+  end
+
+  g.column name: model_class.human_attribute_name(:resume_id), attribute: 'resume_id', filter: false do |u|
+    link_to u.resumes.count
+  end
+
+  g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at', filter: false do |u|
+    u.created_at
+  end
+
+end -%>

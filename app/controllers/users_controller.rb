@@ -2,11 +2,14 @@ class UsersController < ApplicationController
   before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job]
   before_action :authenticate_user!, only: [ :delete_favorite_job]
   def index
-  	 @users = User.all
-  #	 binding.pry
-  	 @resumePath = Rails.application.config.resumePath
-  	# Rails.application.config.resumePath
-  	 render layout: "admin"
+    @users = initialize_grid(
+      User,
+      per_page: 20
+    )
+    #	binding.pry
+    @resumePath = Rails.application.config.resumePath
+    # Rails.application.config.resumePath
+    render layout: "admin"
   end
 
   def save_favorite_job

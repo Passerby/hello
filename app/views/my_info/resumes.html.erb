@@ -5,22 +5,34 @@
     <h3 class="panel-title"><%= t('my_resumes')  %></h3>
   </div>
   <div class="panel-body">
-  <table class="table table-striped">
-    <% current_user.resumes.each do |r| %>
-    <tr>
-        <td><%= t('preview') %>: <%= link_to r.name, "#{Rails.application.config.resumePath}#{r.path}", target: "_blank" %></td>
-        <td><%= r.created_at.strftime("%Y %b %d")  %></td>
-    </tr>
-    <% end %>
-  </table>
+    <table class="table table-striped">
+      <% current_user.resumes.each do |r| %>
+        <tr>
+          <td><%= t('preview') %>: <%= link_to r.name, "#{Rails.application.config.resumePath}#{r.path}", target: "_blank" %></td>
+          <td><%= r.created_at.strftime("%Y %b %d")  %></td>
+          <td>
+            <% if r.default %>
+              <%= t('default_resume')  %>
+            <% else %>
+              <%= link_to t('set_default'), resume_set_default_path(id: r.id), method: :post, remote: true %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to resume_delete_path(id: r.id), remote: true, method: :delete, data: { confirm: 'Are you sure delete it ?' } do %>
+              <i class="fa fa-trash-o"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
 
     <div class="form-group">
-    <div class="controls col-sm-5">
-      <button id="pickfiles" type="button" class="btn btn-default"><%= t("uploadResume")%></button>
-      <div id="resumeName"></div>
-      <%= text_field_tag :resume_id, nil, :class=>'form-control hidden', id:"resumeId" %>
+      <div class="controls col-sm-5">
+        <button id="pickfiles" type="button" class="btn btn-default"><%= t("uploadResume")%></button>
+        <div id="resumeName"></div>
+        <%= text_field_tag :resume_id, nil, :class=>'form-control hidden', id:"resumeId" %>
+      </div>
     </div>
-  </div>
   </div>
 </div>
 
