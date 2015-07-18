@@ -1,16 +1,26 @@
 <%= render 'link_header' %>
 
-<div class="my-info-content-page-header">
-  <%= t('my_applications')  %>
-</div>
 
-<div class="my-info-content">
-  <% current_user.applications.each do |application| %>
-    <div>
-      <span class="col-sm-2"><%= application.job.title %></span>
-      <span class="col-sm-3"><%= t('application created_at') %>: <%= application.created_at.strftime("%Y - %b - %d") %></span>
-      <span class="col-sm-5"><%= t('application company') %>: <%= application.job.company.name %></span>
-      <span class="col-sm-2"><%= t('application status') %>: <%= t('have read')%></span>
-    </div>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('my_applications')  %></h3>
+  </div>
+  <div class="panel-body">
+  <table class="table table-striped">
+  	<tr>
+  		<th>职位</th>
+  		<th><%= t('application created_at') %></th>
+  		<th><%= t('application company') %></th>
+  		<th><%= t('application status') %></th>
+  	</tr>
+  	<% current_user.applications.each do |application| %>
+  	<tr>
+  		<td><%=  application.job.title %></td>
+  		<td><%= application.created_at.strftime("%Y - %b - %d") %></td>
+  		<td><%= application.job.company.name %></td>
+  		<td><%= t('have read')%></td>
+  	</tr>
+  	<% end %>
+  </table>
+  </div>
 </div>

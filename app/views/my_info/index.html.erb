@@ -1,12 +1,11 @@
 <%= render 'link_header' %>
-<div class="my-info-content-page-header">
-  <%= t('my_info')  %>
-</div>
 
-<div class="my-info-content clearfix">
-  <div class="thumbnail my-info-avatar-image pull-left"> <img alt="avatar image" > </div>
-  <div class="my-info-detail pull-left">
-    <div><%= current_user.name %></div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to raw("<i class='fa-pencil fa'></i>"), edit_user_registration_path, class: 'pull-right' %> <%= t('my_info')  %></h3>
+  </div>
+  <div class="panel-body">
+  <div><%= current_user.name %></div>
     <div><%= current_user.tel %></div>
     <div><%= current_user.email %></div>
     <div><%= current_user.job %></div>

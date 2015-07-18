@@ -1,26 +1,37 @@
 <%= render 'link_header' %>
 
-<div class="my-info-content-page-header">
-  <%= t('my_favorites')  %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t('my_favorites')  %></h3>
+  </div>
+  <div class="panel-body">
+  <table class="table table-striped">
+    <tr>
+      <th>职位</th>
+      <th><%= t('application company') %></th>
+      <th><%= t('salary') %></th>
+      <th><%= t('city') %></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @favorite_jobs.each do |f| %>
+    <tr>
+      <td><%= f.job.title %></td>
+      <td><%= f.job.company.name %></td>
+      <td><%= f.job.salary %></td>
+      <td><%= f.job.city.name %></td>
+      <td><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></td>
+      <td><%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete do %>
+         <i class="fa fa-trash-o"></i>
+        <% end %></td>
+    </tr>
+    <% end %>
+  </table>
+  </div>
 </div>
 
-<div class="my-info-content">
-  <% @favorite_jobs.each do |f| %>
-    <div class="clearfix">
-      <span class="col-sm-2"><%= f.job.title %></span>
-      <span class="col-sm-3"><%= t('application company') %>: <%= f.job.company.name %></span>
-      <span class="col-sm-3"><%= t('salary') %>: <%= f.job.salary %></span>
-      <span class="col-sm-2"><%= t('city') %> <%= f.job.city.name %></span>
-      <span class="col-sm-1"><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></span>
-      <span class="col-sm-1">
-        <%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete do %>
-         <!--  <i class="glyphicon glyphicon-trash"></i> -->
-         x
-        <% end %>
-      </span>
-    </div>
-  <% end %> 
-</div>
+
 
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-md">

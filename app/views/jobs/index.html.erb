@@ -16,9 +16,9 @@
     job.salary
   end
 
-  g.column name: model_class.human_attribute_name(:end_date), attribute: 'end_date' do |job|
-    job.end_date
-  end
+#  g.column name: model_class.human_attribute_name(:end_date), attribute: 'end_date', filter: false do |job|
+#    job.end_date
+#  end
 
   g.column name: model_class.human_attribute_name(:admin_setting_city_id), model: 'Admin::Setting::City', attribute: 'name' do |job|
     job.cities.map{ |c| c.name }.join(', ')
@@ -36,7 +36,7 @@
     link_to job.applications.count, applications_path(job_id: job.id)
   end
 
-  g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at' do |job|
+  g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at', filter: false do |job|
     job.created_at
   end
 

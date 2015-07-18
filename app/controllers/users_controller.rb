@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job]
-  before_action :authenticate_user!, only: [:save_favorite_job, :delete_favorite_job]
+  before_action :authenticate_user!, only: [ :delete_favorite_job]
   def index
   	 @users = User.all
   #	 binding.pry
@@ -12,9 +12,11 @@ class UsersController < ApplicationController
   def save_favorite_job
     if current_user.present?
       FavoriteJob.find_or_create_by(user_id: current_user.id, job_id: params[:job_id])
-      render js: "alert('收藏成功')" 
+   #   render js: "alert('收藏成功')" 
+      render 'users/save_success.js.erb'
     else
-      render js: "alert('请先登录')"
+      render 'logined/loginModal.js.erb'
+   #   render js: "alert('请先登录')"
     end
   end
 
