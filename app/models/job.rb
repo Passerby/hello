@@ -1,5 +1,6 @@
 class Job < ActiveRecord::Base
   attr_accessor :applications_count
+  default_scope { where.not(active: false) }
 
   belongs_to :city, class_name: 'Admin::Setting::City', foreign_key: 'admin_setting_city_id'
   belongs_to :company
