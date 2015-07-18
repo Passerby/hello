@@ -2,7 +2,7 @@ class ResumeController < ApplicationController
   before_action :authenticate_user!, only: [:destroy, :set_default]
 
   def index
-  	@resumes = Resume.all
+    @resumes = Resume.all
   end
 
   def create

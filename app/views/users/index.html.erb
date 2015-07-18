@@ -24,8 +24,8 @@
     u.country
   end
 
-  g.column name: model_class.human_attribute_name(:resume_id), attribute: 'resume_id' do |u|
-    # job.jobposter.email
+  g.column name: model_class.human_attribute_name(:resume_id), attribute: 'resume_id', filter: false do |u|
+    link_to u.resumes.count
   end
 
   g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at', filter: false do |u|
