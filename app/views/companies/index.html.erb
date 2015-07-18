@@ -28,6 +28,8 @@
   </tbody>
 </table>
 
+<%= paginate @companies %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_company_path,
             :class => 'btn btn-primary' %>

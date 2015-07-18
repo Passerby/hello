@@ -9,7 +9,7 @@
   end
 
   g.column name: model_class.human_attribute_name(:title), attribute: 'title' do |job|
-    job.title
+    link_to job.title, job_path(job.id)
   end
 
   g.column name: model_class.human_attribute_name(:salary), attribute: 'salary' do |job|

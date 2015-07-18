@@ -4,7 +4,7 @@ class Admin::Setting::JobpostersController < ApplicationController
   before_action :auth_root_admin?
 
   def index
-    @jobposters = Jobposter.all.order(id: :desc)
+    @jobposters = Jobposter.all.order(id: :desc).page(params[:page])
   end
 
   def edit

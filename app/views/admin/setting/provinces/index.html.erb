@@ -26,6 +26,8 @@
   </tbody>
 </table>
 
+<%= paginate @admin_setting_provinces %>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_admin_setting_province_path,
             :class => 'btn btn-primary' %>

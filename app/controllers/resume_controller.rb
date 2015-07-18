@@ -1,4 +1,6 @@
 class ResumeController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy, :set_default]
+
   def index
   	@resumes = Resume.all
   end
@@ -22,6 +24,24 @@ class ResumeController < ApplicationController
       end
  
 	end
+
+  def destroy
+    resume = Resume.find_by(id: params[:id], user_id: current_user.id)
+    if resume.destroy
+      render js: "location.reload();"
+    else
+      render js: "alert('delete resume job fail!');"
+    end
+  end
+
+  def set_default
+    resume = Resume.find_by(id: params[:id], user_id: current_user.id)
+    if resume.present? && ( Resume.where(user_id: current_user.id).update_all(default: false) and resume.update(default: true))
+      render js: "location.reload();"
+    else
+      render js: "alert('set default resume job fail!');"
+    end
+  end
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
