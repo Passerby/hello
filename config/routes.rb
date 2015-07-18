@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    root 'home#index'
 
   #  post 'applications/create'
-  resources :applications, only: [ :index, :create]
+  resources :applications, only: [:index, :create]
 
   get 'logined/user', as: 'user_logined'
 
