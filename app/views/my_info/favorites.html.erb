@@ -1,33 +1,34 @@
 <%= render 'link_header' %>
 
-
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><%= t('my_favorites')  %></h3>
   </div>
   <div class="panel-body">
-  <table class="table table-striped">
-    <tr>
-      <th>职位</th>
-      <th><%= t('application company') %></th>
-      <th><%= t('salary') %></th>
-      <th><%= t('city') %></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <% @favorite_jobs.each do |f| %>
-    <tr>
-      <td><%= link_to f.job.title, job_path(f.job_id) %></td>
-      <td><%= f.job.company.name %></td>
-      <td><%= f.job.salary %></td>
-      <td><%= f.job.city.name %></td>
-      <td><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></td>
-      <td><%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete, data: { confirm: 'Are you sure delete it ?' } do %>
-         <i class="fa fa-trash-o"></i>
-        <% end %></td>
-    </tr>
-    <% end %>
-  </table>
+    <table class="table table-striped">
+      <tr>
+        <th>职位</th>
+        <th><%= t('application company') %></th>
+        <th><%= t('salary') %></th>
+        <th><%= t('city') %></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @favorite_jobs.each do |f| %>
+      <tr>
+        <td><%= link_to f.job.title, job_path(f.job_id) %></td>
+        <td><%= f.job.company.name if f.job.company.present? %></td>
+        <td><%= f.job.salary %></td>
+        <td><%= f.job.cities.map{ |city| city.name }.join(', ') if f.job.cities.present? %></td>
+        <td><%= link_to t('apply'), user_logined_path(job_id: f.job_id), remote: true %></td>
+        <td>
+          <%= link_to delete_favorite_job_path(job_id: f.job_id), remote: true, method: :delete, data: { confirm: 'Are you sure delete it ?' } do %>
+            <i class="fa fa-trash-o"></i>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   </div>
 </div>
 
