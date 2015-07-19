@@ -32,6 +32,10 @@
     u.created_at
   end
 
+  g.column do |u|
+    link_to t('.destroy', :default => t("helpers.links.destroy")), user_delete_path(id: u.id), :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' }
+  end
+
 end -%>
 
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

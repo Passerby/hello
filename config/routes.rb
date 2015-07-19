@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'admin/index', to: 'admin#index', as: 'admin'
 
   get 'users/index', to: 'users#index', as: 'users'
+  delete 'users/delete', to: 'users#destroy', as: 'user_delete'
 
   get 'home/index', to: 'home#index', as: 'home'
 
@@ -51,7 +52,7 @@ Rails.application.routes.draw do
       resources :educations
       resources :cities
       resources :provinces
-      resources :jobposters, only: [:index, :edit, :update]
+      resources :jobposters, only: [:index, :edit, :update, :destroy]
     end
   end
 

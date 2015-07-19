@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  default_scope { where.not(active: false) }
   has_many :resumes
   has_many :favorite_jobs
   has_many :applications

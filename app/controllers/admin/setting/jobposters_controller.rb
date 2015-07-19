@@ -28,6 +28,15 @@ class Admin::Setting::JobpostersController < ApplicationController
     redirect_to admin_setting_jobposters_url
   end
 
+  def destroy
+    @jobposter = Jobposter.find(params[:id])
+    if @jobposter.update(active: false)
+      respond_to do |format|
+        format.html { redirect_to admin_setting_jobposters_url, notice: 'joposter was successfully destroyed.' }
+      end
+    end
+  end
+
   private
 
   def auth_root_admin?

@@ -1,15 +1,24 @@
 class UsersController < ApplicationController
-  before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job, :show_applications]
+  before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job]
   before_action :authenticate_user!, only: [:delete_favorite_job]
   def index
     @users = initialize_grid(
-      User,
+      User.where.not(active: false),
       per_page: 20
     )
     #	binding.pry
     @resumePath = Rails.application.config.resumePath
     # Rails.application.config.resumePath
     render layout: "admin"
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.update(active: false)
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: 'user was successfully destroyed.' }
+      end
+    end
   end
 
   def show_resumes
