@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job]
-  before_action :authenticate_user!, only: [ :delete_favorite_job]
+  before_action :authenticate_jobposter!, except: [:save_favorite_job, :delete_favorite_job, :show_applications]
+  before_action :authenticate_user!, only: [:delete_favorite_job]
   def index
     @users = initialize_grid(
       User,
@@ -10,6 +10,11 @@ class UsersController < ApplicationController
     @resumePath = Rails.application.config.resumePath
     # Rails.application.config.resumePath
     render layout: "admin"
+  end
+
+  def show_resumes
+    @resumes = Resume.where(user_id: params[:id])
+    render 'users/show_resumes.js.erb', layout: "admin"
   end
 
   def save_favorite_job

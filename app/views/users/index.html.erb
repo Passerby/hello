@@ -25,7 +25,7 @@
   end
 
   g.column name: model_class.human_attribute_name(:resume_id), attribute: 'resume_id', filter: false do |u|
-    link_to u.resumes.count
+    link_to u.resumes.count, show_resumes_path(id: u.id), remote: true
   end
 
   g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at', filter: false do |u|
@@ -33,3 +33,10 @@
   end
 
 end -%>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content job-modal-content clearfix">
+    </div>
+  </div>
+</div>

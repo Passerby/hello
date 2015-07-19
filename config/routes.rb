@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get 'show_resumes', to: 'users#show_resumes', as: 'show_resumes'
   post 'save_favorite_job', to: 'users#save_favorite_job', as: 'save_favorite_job'
   delete 'delete_favorite_job', to: 'users#delete_favorite_job', as: 'delete_favorite_job'
 
