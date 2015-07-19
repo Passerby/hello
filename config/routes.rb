@@ -3,7 +3,9 @@ Rails.application.routes.draw do
    root 'home#index'
 
   #  post 'applications/create'
-  resources :applications, only: [:index, :create]
+  resources :applications, only: [:index, :create] do
+    post 'set_read'
+  end
 
   get 'logined/user', as: 'user_logined'
 
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
   get 'admin/index', to: 'admin#index', as: 'admin'
 
   get 'users/index', to: 'users#index', as: 'users'
+  delete 'users/delete', to: 'users#destroy', as: 'user_delete'
 
   get 'home/index', to: 'home#index', as: 'home'
 
@@ -51,7 +54,7 @@ Rails.application.routes.draw do
       resources :educations
       resources :cities
       resources :provinces
-      resources :jobposters, only: [:index, :edit, :update]
+      resources :jobposters, only: [:index, :edit, :update, :destroy]
     end
   end
 
@@ -61,6 +64,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get 'show_resumes', to: 'users#show_resumes', as: 'show_resumes'
   post 'save_favorite_job', to: 'users#save_favorite_job', as: 'save_favorite_job'
   delete 'delete_favorite_job', to: 'users#delete_favorite_job', as: 'delete_favorite_job'
 

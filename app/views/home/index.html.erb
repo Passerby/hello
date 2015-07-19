@@ -43,7 +43,7 @@
 	<div class="col-sm-3">
 		<span class="value-desc">
 			<%= Job.human_attribute_name(:admin_setting_city_id) %>
-		</span><%= Admin::Setting::City.find(job.admin_setting_city_id).name %>
+		</span><%= job.cities.map{ |city| city.name }.join(', ') if job.cities.present? %>
 	</div>
 </div>
 <% end %>

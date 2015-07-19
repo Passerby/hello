@@ -9,6 +9,7 @@
       <th><%= User.human_attribute_name(:job) %></th>
       <th><%= User.human_attribute_name(:tel) %></th>
       <th><%= User.human_attribute_name(:country) %></th>
+      <th><%= Application.human_attribute_name(:status) %></th>
       <th>简历</th>
       <th>时间</th>
     </tr>
@@ -16,16 +17,28 @@
   <tbody>
     <% @applications.each do |app| %>
       <tr>
-        <td><%= User.find(app.user_id).name %></td>
-        <td><%= User.find(app.user_id).email %></td>
-        <td><%= User.find(app.user_id).job %></td>
-        <td><%= User.find(app.user_id).tel %></td>
-        <td><%= User.find(app.user_id).country %></td>
-
-        <td><%= link_to Resume.find(app.resume_id).name, @path+Resume.find(app.resume_id).path,target: "_blank" %></td>
+        <td><%= app.user.name %></td>
+        <td><%= app.user.email %></td>
+        <td><%= app.user.job %></td>
+        <td><%= app.user.tel %></td>
+        <td><%= app.user.country %></td>
+        <td><%= t(app.status) %></td>
+        <td><%= link_to Resume.find(app.resume_id).name, @path+Resume.find(app.resume_id).path, target: "_blank", data: { id: app.id }, class: 'js-on-click' %></td>
         <td><%= app.created_at %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<%= content_for :js do %>
+  <script type="text/javascript">
+    $('.js-on-click').on('click', function(e) {
+      self = this;
+      $.ajax({
+        url: '/applications/' + $(self).data('id') + '/set_read',
+        method: 'post',
+        dataType: 'josn'
+      });
+    });
+  </script>
+<% end %>

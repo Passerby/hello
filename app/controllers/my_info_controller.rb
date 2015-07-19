@@ -8,9 +8,10 @@ class MyInfoController < ApplicationController
   end
 
   def applications
+    @applications = Application.joins(:job).where(user_id: current_user.id)
   end
 
   def favorites
-    @favorite_jobs = FavoriteJob.eager_load(:job).where(user_id: current_user.id)
+    @favorite_jobs = FavoriteJob.joins(:job).where(user_id: current_user.id)
   end
 end
