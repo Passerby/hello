@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   layout 'admin'
+  before_action :authenticate_jobposter!, only: [:index]
   def create
     @application = Application.new(application_params)
     if user_signed_in?
@@ -22,9 +23,13 @@ class ApplicationsController < ApplicationController
   end
 
   def index
-    job_id = params[:job_id]
-  	@applications = Application.where(job_id: job_id)
+  	@applications = Application.joins(:user).where(job_id: params[:job_id])
     @path = Rails.application.config.resumePath
+  end
+
+  def set_read
+    Application.find(params[:application_id]).update(status: 'have_read')
+    render json: { result: true }
   end
 
   private

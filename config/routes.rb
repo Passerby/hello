@@ -3,7 +3,9 @@ Rails.application.routes.draw do
    root 'home#index'
 
   #  post 'applications/create'
-  resources :applications, only: [:index, :create]
+  resources :applications, only: [:index, :create] do
+    post 'set_read'
+  end
 
   get 'logined/user', as: 'user_logined'
 

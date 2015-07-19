@@ -13,12 +13,12 @@
   		<th><%= t('application company') %></th>
   		<th><%= t('application status') %></th>
   	</tr>
-  	<% current_user.applications.each do |application| %>
+  	<% @applications.each do |application| %>
   	<tr>
   		<td><%= link_to application.job.title, job_path(application.job_id) %></td>
   		<td><%= application.created_at.strftime("%Y - %b - %d") %></td>
   		<td><%= application.job.company.name %></td>
-  		<td><%= t('have read')%></td>
+  		<td><%= t(application.status)%></td>
   	</tr>
   	<% end %>
   </table>

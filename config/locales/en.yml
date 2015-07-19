@@ -65,7 +65,8 @@ en:
   application created_at: "申请日期"
   application company: "申请公司"
   application status: "申请状态"
-  have read: "已读"
+  not_read: "未读"
+  have_read: "已读"
 
   passwordLen: "密码长度至少为%{len}"
   helpers:
