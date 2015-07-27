@@ -162,6 +162,13 @@ form .btn{
     background:url(/assets/b_search.png) no-repeat center center;
     height:151px;
 }
+.about-banner-bg{
+        background: linear-gradient(#363b3a, #8c8f8c);
+        .about-banner{
+            background:url(/assets/b_about.jpg) no-repeat center center;
+            height:477px;
+        }
+}
 .sign-banner{
     background:url(/assets/b_sign_in.png) no-repeat center center;
     height:177px;

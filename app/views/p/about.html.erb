@@ -1,2 +1,34 @@
-<h1>P#about</h1>
-<p>Find me in app/views/p/about.html.erb</p>
+<div class="about-border">
+<div class="about-title"><div class="title">关于我们</div></div>
+<div class="padding">
+<% if(I18n.locale == :en) %>
+<%= render("p/about/en") %>
+<% else %>
+<%= render("p/about/zh") %>
+<% end %>
+</div>
+</div>
+<%= image_tag("about_env.jpg", width:'100%') %>
+
+<div class="contact-border">
+<div class="contact-title"><div class="title">联系我们</div></div>
+<div class="padding">
+
+            <%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('telVal'), class:'hp-footer-val')%>
+            <%= content_tag(:div, t('email'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('emailVal'), class:'hp-footer-val')%>
+            <%= content_tag(:div, t('addr'), class:'hp-footer-val-desc')%>
+            <%= content_tag(:div, t('addrVal'), class:'hp-footer-val')%>
+
+</div>
+</div>
+
+
+<% content_for :top do %>
+<div class="about-banner-bg">
+<div class="about-banner banner"></div>
+</div>
+<% end %>
+
+
