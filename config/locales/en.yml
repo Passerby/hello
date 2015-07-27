@@ -59,7 +59,7 @@ en:
 
   my_applications: "My applications"
   my_favorites: "My favorites"
-  my_info: "个人中心"
+  my_info: "My Info"
   my_resumes: "My resumes"
   preview: 'Preview'
   application created_at: "Applied at"
@@ -112,4 +112,4 @@ en:
         requirement: "Job requirement:"
         comment: "Comment:"
   moreRegistInfo: "提供更多信息， 将有助于我们给您推荐更合适的职位"
-  companyDetail: "Company detail"
+  companyDetail: "Company detail:"
