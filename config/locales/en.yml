@@ -38,8 +38,8 @@ en:
   hpMoreJob: "MORE>>"
 
   jobTitle: "Job Title: "
-  salary: "Salary:"
-  city: "Citi:"
+  salary: "Salary"
+  city: "City"
 
   news: "News"
   weixin: "Weixin"
@@ -72,17 +72,17 @@ en:
   helpers:
     label:
       user:
-        email: "Email:"
-        password: "Password:"
+        email: "Email"
+        password: "Password"
         password_confirmation: "Confirm password"
-        name: "Full name:"
-        tel: "Tel:"
+        name: "Full name"
+        tel: "Tel"
         job: "Desired job"
         country: "Country"
         admin_setting_education_id: "Education background"
-        admin_setting_experience_id: "Work experience:"
-        admin_setting_industry_id: "Desired industry:"
-        summmary: "Work experience summary:"
+        admin_setting_experience_id: "Work experience"
+        admin_setting_industry_id: "Desired industry"
+        summmary: "Work experience summary"
         remember_me: "Remember me"
   Edit: "Edit"
   root_admin: "超级管理员"
