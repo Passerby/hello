@@ -1,6 +1,6 @@
 <div class="about-border">
-<div class="about-title"><div class="title">关于我们</div></div>
-<div class="padding">
+<div class="about-title"><div class="title"><%= t('navAbout')%></div></div>
+<div class="padding" style="padding-bottom:150px;">
 <% if(I18n.locale == :en) %>
 <%= render("p/about/en") %>
 <% else %>
@@ -8,19 +8,27 @@
 <% end %>
 </div>
 </div>
-<%= image_tag("about_env.jpg", width:'100%') %>
+<%= image_tag("about_env#{I18n.locale}.jpg", width:'100%', style:'margin-top:-100px') %>
 
 <div class="contact-border">
-<div class="contact-title"><div class="title">联系我们</div></div>
+<div class="contact-title"><div class="title"><%= t('contactUs')%></div></div>
 <div class="padding">
 
-            <%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
+<div class="row">
+	<div class="col-sm-4">
+		<%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
             <%= content_tag(:div, t('telVal'), class:'hp-footer-val')%>
             <%= content_tag(:div, t('email'), class:'hp-footer-val-desc')%>
             <%= content_tag(:div, t('emailVal'), class:'hp-footer-val')%>
             <%= content_tag(:div, t('addr'), class:'hp-footer-val-desc')%>
             <%= content_tag(:div, t('addrVal'), class:'hp-footer-val')%>
+	</div>
+	<div class="col-sm-8">
 
+<%= render :partial => 'contacts/form' %>
+
+	</div>
+</div>
 </div>
 </div>
 
@@ -31,4 +39,10 @@
 </div>
 <% end %>
 
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content job-modal-content clearfix">
+    </div>
+  </div>
+</div>
 

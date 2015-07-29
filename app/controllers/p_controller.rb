@@ -20,6 +20,7 @@ class PController < ApplicationController
   end
 
   def about
+    @contact = Contact.new
   end
 end
 
