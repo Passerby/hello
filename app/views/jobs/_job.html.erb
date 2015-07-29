@@ -30,21 +30,24 @@
 <div class="jd-val-desc">
 	<%= model_class.human_attribute_name(:description) %>
 </div>
-<%= sanitize @job.description.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.description.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.requirement != "" %>
 <div class="jd-val-desc">
 	<%= model_class.human_attribute_name(:requirement) %>
 </div>
-<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.company.description != "" %>
 <div class="jd-val-desc">
 	<%= t('companyDetail') %>
 </div>
-<%= sanitize @job.company.description.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.company.description.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.comment != "" %>

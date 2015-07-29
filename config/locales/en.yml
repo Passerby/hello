@@ -37,9 +37,10 @@ en:
   becomeVIP: "Our consultants will offer more global positions to you"
   hpMoreJob: "MORE>>"
 
-  jobTitle: "Job Title: "
-  salary: "Salary"
-  city: "City"
+  jobTitle: "JOB TITLE"
+  salary: "SALARY"
+  city: "CITY"
+  company: "COMPANY"
 
   news: "News"
   weixin: "Weixin"
@@ -49,7 +50,7 @@ en:
   email: "Email:"
   emailVal: "service@hellocareer.cn"
   addr: "Addr:"
-  addrVal: "上海市长宁区安化路492号A座102室"
+  addrVal: "Room 126 Block A， No.492 Anhua Road, Shanghai"
 
   jobDesc: "Job description"
   jobReq: "Job requirement"

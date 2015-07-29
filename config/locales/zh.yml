@@ -32,6 +32,11 @@ zh:
   becomeVIP: "成为我们的VIP，为您推荐更多全球工作机会"
   hpMoreJob: "更多>>"
 
+  jobTitle: "职位名"
+  salary: "薪酬"
+  city: "城市"
+  company: "公司"
+
   news: "资讯"
   weixin: "微信"
   contactUs: "联系我们"
@@ -103,7 +108,7 @@ zh:
         requirement: "职位要求："
         comment: "顾问推荐："
   moreRegistInfo: "提供更多信息， 将有助于我们给您推荐更合适的职位"
-  companyDetail: "公司介绍"
+  companyDetail: "公司介绍："
   resume: "简历"
   uploadResume: "上传简历"
   submit: "发送"
