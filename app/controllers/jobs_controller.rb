@@ -33,7 +33,8 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
+    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+    @job = @jobs[0]
     if params[:page]
       @page = params[:page]
     else

@@ -2,32 +2,16 @@
      <div class="container">
 
      <%= render("shared/nav") %>
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-1">
-            <%= content_tag(:div, t('news'), class:'hp-footer-title')%>
-            <ul class="list-unstyled">
-              <li>2015美国IT行业预测：更多机会，更高收入</li>
-              <li>面试薪资谈低了被录谈低</li>
-              <li>走好海外工作的第一步，你准备好了吗</li>
-              <li>失业四个月，要不要..</li>
-              <li>公司只看简历不给面公司只看简历不给面.</li>
 
-            </ul>
-          </div>
-          <div class="col-sm-3 footer-weixin-wrapper">
-            <%= content_tag(:div, t('weixin'), class:'hp-footer-title')%>
-            <%= image_tag("weixin.jpg", class:'hp-footer-weixin')%> 
-          </div>
-          <div class="col-sm-4">
-            <%= content_tag(:div, t('contactUs'), class:'hp-footer-title')%>
-            <%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('telVal'), class:'hp-footer-val')%>
-            <%= content_tag(:div, t('email'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('emailVal'), class:'hp-footer-val')%>
-            <%= content_tag(:div, t('addr'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('addrVal'), class:'hp-footer-val')%>
-          </div>
-        </div>
+<table class="table">
+  <tr>
+    <td><%= t('tel')%> <%= t('telVal')%></td>
+    <td><%= t('email')%> <%= t('emailVal')%></td>
+    <td><%= t('addr')%> <%= t('addrVal')%></td>
+    <td><%= t('weixin')%> Hellocareer</td>
+  </tr>
+</table>  
+
       </div>
       </footer>
 <%= javascript_include_tag "application" %>

@@ -105,7 +105,6 @@
 .footer {
     background-color: #f07f1d;
     margin-top: $blockMargin;
-    padding-bottom: 40px;
 }
 .footer a, .footer{
 	color: #fff;
@@ -132,16 +131,22 @@
 .footer {
 	.nav{
 	float:none !important;
-	width: 60%;
+	width: 80%;
 	margin:0 auto;
 		li{
-		width:20%
+		width:16%
 		}
 	}
+   .nav >li > a{
+    padding-bottom:10px;
+}
   .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background-color: transparent;
-  color:lighten($c1, 30%);
+  color:#898989;
+    }
+    td{
+        border-width: 0 !important;
     }
 }
 .line{ height:1px;background-color:$c1;}
