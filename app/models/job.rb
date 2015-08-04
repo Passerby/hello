@@ -26,6 +26,14 @@ class Job < ActiveRecord::Base
     end
   end
 
+  def self.search_industry(industry_id)
+    if industry_id.blank?
+      all
+    else
+      eager_load(:job_industries).where(job_industries: { industry_id: industry_id })
+    end
+  end
+
   def self.search(search_text)
     if search_text.blank?
       all

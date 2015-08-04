@@ -21,8 +21,8 @@ class JobsController < ApplicationController
   end
 
   def last
-    @job = Job.last
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+    @jobs = Job.search_city(params[:city_name]).search_industry(params[:industry_id]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+    @job = @jobs[0]
     if params[:page]
       @page = params[:page]
     else
@@ -34,8 +34,8 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page]).order(id: :desc)
-    @job = @jobs[0]
+    @jobs = Job.search_city(params[:city_name]).search_industry(params[:industry_id]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+
     if params[:page]
       @page = params[:page]
     else

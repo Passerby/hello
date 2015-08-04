@@ -1,9 +1,9 @@
 <div class='main-search center'>
 
-  <form role="form" class="form-inline center" style="width:80%;"> 
+  <form role="form" class="form-inline center" style="width:80%;" action="/jobs/last" method="get"> 
     <div class="row">
 
-      <div class="col-sm-5">
+      <div class="col-sm-3">
         <div class="form-group has-feedback has-feedback-left">
           <label class="control-label sr-only">Keywords</label>
           <div class="inline-feedback">
@@ -12,10 +12,19 @@
         </div>
       </div>
 
-      <div class="col-sm-5">
-        <select id="city_name" class="form-control pull-left input-lg" name="city[name]">
+      <div class="col-sm-3">
+        <select id="industry_id" class="form-control pull-left input-lg" name="industry_id">
           <option value="">全部</option>
-          <%= options_for_select( Admin::Setting::City.where(id: Job.all.pluck(:admin_setting_city_id).uniq).select(:id, :name).collect {|p| [ p.name, p.id ] }, params[:city_name])%>
+          <%= options_for_select( Admin::Setting::Industry.where.not(parent_id: nil).select(:id, :name).collect {|p| [ p.name, p.id ] }, params[:industry_id])%>
+        </select>
+      </div>
+
+      <div class="col-sm-3">
+        <select id="city_name" class="form-control pull-left input-lg" name="city_name">
+          <option value="">全部</option>
+          <%#=  options_for_select( Admin::Setting::City.where(id: Job.all.pluck(:admin_setting_city_id).uniq).select(:id, :name).collect {|p| [ p.name, p.id ] }, params[:city_name])%>
+
+          <%= options_for_select( Admin::Setting::City.all.select(:id, :name).collect {|p| [ p.name, p.id ] }, params[:city_name])%>
         </select>
       </div>
 
@@ -34,23 +43,40 @@ function insertParam(key, value)
     key = encodeURI(key); value = encodeURI(value);
 
     var kvp = document.location.search.substr(1).split('&');
-
-    var i=kvp.length; var x; while(i--) 
+debugger
+    var hasKeyword = false,
+        hasParam = false;
+  //  var i=kvp.length;
+    for(var i=0; i<kvp.length; i++)
     {
-        x = kvp[i].split('=');
+        var x = kvp[i].split('=');
 
         if (x[0]==key)
         {
+            hasParam = true;
             x[1] = value;
             kvp[i] = x.join('=');
-            break;
+           // break;
+        }
+        if(x[0]=='keywords'){
+          hasKeyword = true;
+          x[1] = $('#keywords').val();
+          kvp[i] = x.join('=');
         }
     }
-
-    if(i<0) {kvp[kvp.length] = [key,value].join('=');}
-
+debugger
+  //  if(i<0) {kvp[kvp.length] = [key,value].join('=');}
+    if(!hasKeyword) {
+      {kvp[kvp.length] = ['keywords',$('#keywords').val()].join('=');}
+    }
+    if(!hasParam) {
+      {kvp[kvp.length] = [key,value].join('=');}
+    }
+debugger
     //this will reload the page, it's likely better to store this until finished
-    document.location.search = kvp.join('&'); 
+    location = document.origin + '<%= lastjob_path %>?' + kvp.join('&'); 
+
+  //  document.location.search = kvp.join('&'); 
 };
 
 $('#city_name').on('change', function(e) {
@@ -58,6 +84,14 @@ $('#city_name').on('change', function(e) {
     insertParam('city_name', '');
   } else {
     insertParam('city_name', $(this).val());
+  }
+});
+
+$('#industry_id').on('change', function(e) {
+  if ($(this).val() == '全部') {
+    insertParam('industry_id', '');
+  } else {
+    insertParam('industry_id', $(this).val());
   }
 });
 </script>

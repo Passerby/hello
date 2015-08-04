@@ -12,7 +12,11 @@
 </div>
 </div>
 <div class="jd-content col-sm-8">
+<% if @job %>
   <%= render ("jobs/job") %>
+<% else %>
+<h4><%= t('nojob')%></h4>
+<% end %>
 </div>
 </div><!--end content-->
 <div class="clearfix"></div>
@@ -27,6 +31,8 @@
 <% end %>
 
 <% content_for :title do %>
+<% if @job %>
 <%= @job.title %> - HelloCareer
+<% end %>
 <% end %>
 <%= render("shared/qiniu_upload") %>
