@@ -21,11 +21,11 @@
 <% @case_companies.each do |case_company| %>
 <div class="case-other">
 <img src="<%= case_company.img %>" alt="<%= case_company.name %>">
-  <div class="font-c1 margin-top">招聘需求</div>
-  <div><%= case_company.requirement %></div>
-  <div class="font-c1">产品使用</div>
-  <div><%= case_company.usage %></div>
-  <div class="font-c1">招聘效果</div>
+  <div class="font-c1 margin-top"><%= t('requirement')%></div>
+  <div class="case-c-height"><%= case_company.requirement %></div>
+  <div class="font-c1"><%= t('product')%></div>
+  <div class="case-c-height"><%= case_company.usage %></div>
+  <div class="font-c1"><%= t('result')%></div>
   <div><%= case_company.effect %></div>
 </div>
 <% end %>

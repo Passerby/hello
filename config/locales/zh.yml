@@ -45,7 +45,7 @@ zh:
   email: "Email："
   emailVal: "service@hellocareer.cn"
   addr: "地址："
-  addrVal: "上海市长宁区安化路492号A座102室"
+  addrVal: "上海市长宁区安化路492号A座126室"
 
   jobDesc: "职位描述"
   jobReq: "职位要求"
@@ -98,7 +98,7 @@ zh:
         country: "国籍"
       job:
         title: "职位名称："
-        salary: "薪水："
+        salary: "薪酬："
         admin_setting_city_id: "地点："
         company_id: "公司："
         created_at: "创建时间："
@@ -112,3 +112,8 @@ zh:
   resume: "简历"
   uploadResume: "上传简历"
   submit: "发送"
+  requirement: "招聘需求"
+  product: "产品使用"
+  result: "招聘效果"
+  loginPopup1: "还不是HelloCareer的用户么？"
+  loginPopup2: "立即注册享受一对一VIP猎头服务"
