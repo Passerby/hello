@@ -9,6 +9,8 @@ class Job < ActiveRecord::Base
   has_many :applications
   has_many :job_cities
   has_many :cities, through: :job_cities
+  has_many :job_industries
+  has_many :industries, through: :job_industries
 
   validates :title, presence: true
   validates :salary, presence: true

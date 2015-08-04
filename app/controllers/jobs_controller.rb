@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!, :except => [:show, :last]
   before_action :split_cities, only: [:update, :create]
+  before_action :split_industries, only: [:update, :create]
 
   # GET /jobs
   # GET /jobs.json
@@ -59,7 +60,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.jobposter_id = current_jobposter.id
     @job.cities = @cities if @cities.present?
-
+    @job.industries = @industries if @industries.present?
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -77,6 +78,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       @job.cities = @cities
+      @job.industries = @industries
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
@@ -113,6 +115,13 @@ class JobsController < ApplicationController
     @cities = []
     if params["hidden-cities"].present?
       @cities = Admin::Setting::City.where(name: params["hidden-cities"].split(","))
+    end
+  end
+
+  def split_industries
+    @industries = []
+    if params["hidden-industries"].present?
+      @industries = Admin::Setting::Industry.where(name: params["hidden-industries"].split(","))
     end
   end
 end
