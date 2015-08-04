@@ -40,6 +40,10 @@
     job.created_at
   end
 
+  g.column name: '广告', attribute: 'adjob', filter: false do |job|
+    job.adjob
+  end
+
   g.column do |job|
     link_to t('.edit', :default => t("helpers.links.edit")), edit_job_path(job), :class => 'btn btn-default btn-xs'
   end

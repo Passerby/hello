@@ -21,7 +21,7 @@ class JobsController < ApplicationController
 
   def last
     @job = Job.last
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
+    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page]).order(id: :desc)
     if params[:page]
       @page = params[:page]
     else
@@ -106,7 +106,7 @@ class JobsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :company_id, :jobposter_id)
+    params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :company_id, :jobposter_id, :adjob)
   end
 
   def split_cities
