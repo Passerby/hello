@@ -63,21 +63,39 @@
   <div class="form-group">
     <%= f.label :admin_setting_education_id, :class => 'col-sm-4 control-label' %>
     <div class="col-sm-5">
-      <%= f.collection_select(:admin_setting_education_id, Admin::Setting::Education.all, :id, :name,{}, {:class => 'form-control'}) %>
+    <% if(I18n.locale == :en) %>
+<%= f.collection_select(:admin_setting_education_id, Admin::Setting::Education.all, :id, :en,{}, {:class => 'form-control'}) %>
+<% else %>
+<%= f.collection_select(:admin_setting_education_id, Admin::Setting::Education.all, :id, :name,{}, {:class => 'form-control'}) %>
+<% end %>
+      
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :admin_setting_experience_id, :class => 'col-sm-4 control-label' %>
     <div class="col-sm-5">
-      <%= f.collection_select(:admin_setting_experience_id, Admin::Setting::Experience.all, :id, :name,{}, {:class => 'form-control'}) %>
+
+<% if(I18n.locale == :en) %>
+<%= f.collection_select(:admin_setting_experience_id, Admin::Setting::Experience.all, :id, :en,{}, {:class => 'form-control'}) %>
+<% else %>
+<%= f.collection_select(:admin_setting_experience_id, Admin::Setting::Experience.all, :id, :name,{}, {:class => 'form-control'}) %>
+<% end %>
+      
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :admin_setting_industry_id, :class => 'col-sm-4 control-label' %>
     <div class="col-sm-5">
-      <%= f.collection_select(:admin_setting_industry_id, Admin::Setting::Industry.all, :id, :name,{}, {:class => 'form-control'}) %>
+
+<% if(I18n.locale == :en) %>
+<%= f.collection_select(:admin_setting_industry_id, Admin::Setting::Industry.where.not(parent_id: nil), :id, :en,{}, {:class => 'form-control'}) %>
+<% else %>
+<%= f.collection_select(:admin_setting_industry_id, Admin::Setting::Industry.where.not(parent_id: nil), :id, :name,{}, {:class => 'form-control'}) %>
+<% end %>
+
+      
     </div>
   </div>
 
