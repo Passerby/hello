@@ -22,9 +22,9 @@
       <%= model_class.human_attribute_name(:admin_setting_city_id) %>
     </span>
     <% if(I18n.locale == :en) %>
-<%= @job.cities.map{ |c| c.en }.join(', ') %>
+<%= job.cities.map{ |c| c.en }.join(', ') %>
 <% else %>
-<%= @job.cities.map{ |c| c.name }.join(', ') %>
+<%= job.cities.map{ |c| c.name }.join(', ') %>
 <% end %>
   </div>
 </div>
