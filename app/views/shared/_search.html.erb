@@ -87,7 +87,7 @@ debugger
     }
 debugger
     //this will reload the page, it's likely better to store this until finished
-    location = document.origin + '<%= lastjob_path %>?' + kvp.join('&'); 
+    location = window.location.origin + '<%= lastjob_path %>?' + kvp.join('&'); 
 
   //  document.location.search = kvp.join('&'); 
 };
