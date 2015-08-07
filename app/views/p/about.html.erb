@@ -11,17 +11,18 @@
 <%= image_tag("about_env#{I18n.locale}.png", width:'100%', style:'margin-top:-100px') %>
 
 <div class="contact-border">
-<div class="contact-title"><div class="title"><%= t('contactUs')%></div></div>
+<div class="contact-title"></div>
 <div class="padding">
 
 <div class="row">
 	<div class="col-sm-4">
-		<%= content_tag(:div, t('tel'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('telVal'), class:'hp-footer-val')%>
-            <%= content_tag(:div, t('email'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('emailVal'), class:'hp-footer-val')%>
-            <%= content_tag(:div, t('addr'), class:'hp-footer-val-desc')%>
-            <%= content_tag(:div, t('addrVal'), class:'hp-footer-val')%>
+  <div class="title" style="margin-bottom:20px"><%= t('contactUs')%></div>
+		<%= content_tag(:div, t('tel'), class:'val-desc')%>
+            <%= content_tag(:div, t('telVal'), class:'val')%>
+            <%= content_tag(:div, t('email'), class:'val-desc')%>
+            <%= content_tag(:div, t('emailVal'), class:'val')%>
+            <%= content_tag(:div, t('addr'), class:'val-desc')%>
+            <%= content_tag(:div, t('addrVal'), class:'val')%>
 	</div>
 	<div class="col-sm-8">
 

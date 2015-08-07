@@ -154,16 +154,27 @@ position:relative;
 		background:url(/assets/about-contact.png) no-repeat;
 		position:absolute;
 		.title{
-			color:$c1;
-			font-size: 25px;
-  			position: absolute;
+		  	position: absolute;
   			bottom: -8px;
    			margin: 0 auto;
   			width: 235px;
   			text-align: center;
 		}
+		
 	}
+	.title{
+			color:$c1;
+			font-size: 25px;
+
+		}
 	.field{
 		margin-bottom: 20px;
+	}
+	.val-desc{
+	 font-weight:bold;
+	 margin:20px 0 5px 0;
+	}
+	.val{
+
 	}
 }
