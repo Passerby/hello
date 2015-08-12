@@ -1,4 +1,6 @@
-var uploader = Qiniu.uploader({
+initUpload();
+function initUpload(){
+    var uploader = Qiniu.uploader({
     runtimes: 'html5,flash,html4',
     browse_button: 'pickfiles',
     uptoken_url: '../../uploader/img',
@@ -66,6 +68,10 @@ var uploader = Qiniu.uploader({
                     $("#resumeId").val(data.id);
                     $("#resumeName").html(name);
                     $("#applyJob").removeClass('hidden');
+                    // on my resume page
+                    if (window.location.pathname.indexOf('resumes' > -1)) {
+                        window.location.reload();
+                    }
                 });
 
 
@@ -85,3 +91,5 @@ var uploader = Qiniu.uploader({
         }
     }
 });
+
+}
