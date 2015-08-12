@@ -9,18 +9,4 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery_ujs
-//= require ./libs/tagmanager
-//= require twitter/bootstrap
-//= require wice_grid
 //= require_tree .
-
-function setCookie(c_name, value, expiredays) {
-    var exdate = new Date();
-    document.cookie = c_name + "="+ value +"; path=/";
-}
-
-$(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
-    $(".alert-success").alert('close');
-});

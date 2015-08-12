@@ -69,7 +69,7 @@ en:
   not_read: "Not read"
   have_read: "Read"
 
-  passwordLen: "密码长度至少为%{len}"
+  passwordLen: "Password should be more than %{len} numbers or letters"
   helpers:
     label:
       user:
@@ -112,7 +112,7 @@ en:
         description: "Job description:"
         requirement: "Job requirement:"
         comment: "Comment:"
-  moreRegistInfo: "提供更多信息， 将有助于我们给您推荐更合适的职位"
+  moreRegistInfo: "Please provide the most detailed information for us to match you the best job opportunities"
   companyDetail: "Company detail:"
   uploadResume: "Upload resume"
   resume: "Resume"

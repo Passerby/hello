@@ -39,7 +39,12 @@
 	<div class="col-sm-3"><%= Company.find(job.company_id).name %></div>
 	<div class="col-sm-3"><%= job.salary %></div>
 	<div class="col-sm-2">
-		<%= job.cities.map{ |city| city.name }.join(', ') if job.cities.present? %>
+	<% if(I18n.locale == :en) %>
+<%= job.cities.map{ |city| city.en }.join(', ') if job.cities.present? %>
+<% else %>
+<%= job.cities.map{ |city| city.name }.join(', ') if job.cities.present? %>
+<% end %>
+		
 	</div>
 </div>
 <% end %>
