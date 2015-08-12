@@ -69,7 +69,7 @@ function initUpload(){
                     $("#resumeName").html(name);
                     $("#applyJob").removeClass('hidden');
                     // on my resume page
-                    if (window.location.pathname.indexOf('resumes' > -1)) {
+                    if (window.location.pathname.indexOf('resumes') > -1) {
                         window.location.reload();
                     }
                 });
