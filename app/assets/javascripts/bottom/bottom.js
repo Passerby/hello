@@ -10,9 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require ./libs/tagmanager
+
 //= require twitter/bootstrap
-//= require wice_grid
 //= require_tree .
 
 function setCookie(c_name, value, expiredays) {
