@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:delete_favorite_job]
   def index
     @users = initialize_grid(
-      User.where.not(active: false),
+      User.where.not(active: false).order(id: :desc),
       per_page: 20
     )
     #	binding.pry
