@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show_resumes
-    @resumes = Resume.where(user_id: params[:id])
+    @resumes = Resume.where(user_id: params[:id],active: true)
     render 'users/show_resumes.js.erb', layout: "admin"
   end
 

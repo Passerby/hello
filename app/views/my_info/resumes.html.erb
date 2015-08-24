@@ -6,7 +6,7 @@
   </div>
   <div class="panel-body">
     <table class="table table-striped">
-      <% current_user.resumes.each do |r| %>
+      <% Resume.where(active:true, user_id:current_user.id).each do |r| %>
         <tr>
           <td><%= t('preview') %>: <%= link_to r.name, "#{Rails.application.config.resumePath}#{r.path}", target: "_blank" %></td>
           <td><%= r.created_at.strftime("%Y %b %d")  %></td>

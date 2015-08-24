@@ -11,7 +11,7 @@
  <div class="form-group">
     <label class="col-sm-4 control-label">选择简历</label>
     <div class="controls col-sm-6">
-      <%= f.collection_select(:resume_id, Resume.where(user_id: current_user.id), :id, :name,{}, {:class => 'form-control'}) %>
+      <%= f.collection_select(:resume_id, Resume.where(user_id: current_user.id,active:true), :id, :name,{}, {:class => 'form-control'}) %>
     </div>
   </div>
 <% else %>
