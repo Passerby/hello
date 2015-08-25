@@ -3,7 +3,7 @@
 
 <div class="job-item">
   <div class="jtitle">
-    <%= link_to job.title, job_path(id: job.id, page: page, city_name: params[:city_name], keywords: params[:keywords])%>
+    <%= link_to job.title, job_path(id: job.id, page: page, city_name: params[:city_name],industry_id: params[:industry_id], keywords: params[:keywords])%>
   </div>
 
   <div>
@@ -20,7 +20,12 @@
   <div>
     <span class="value-desc">
       <%= model_class.human_attribute_name(:admin_setting_city_id) %>
-    </span><%= job.cities.map{ |c| c.name }.join(', ') %>
+    </span>
+    <% if(I18n.locale == :en) %>
+<%= job.cities.map{ |c| c.en }.join(', ') %>
+<% else %>
+<%= job.cities.map{ |c| c.name }.join(', ') %>
+<% end %>
   </div>
 </div>
 

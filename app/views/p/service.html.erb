@@ -1,2 +1,7 @@
-<h1>P#service</h1>
-<p>Find me in app/views/p/service.html.erb</p>
+<% if(I18n.locale == :en) %>
+
+<%= render("p/service/en") %>
+
+<% else %>
+<%= render("p/service/zh") %>
+<% end %>

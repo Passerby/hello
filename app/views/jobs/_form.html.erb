@@ -1,4 +1,7 @@
-<% all_cities = Admin::Setting::City.all%>
+<% all_cities = Admin::Setting::City.all
+  all_industries = Admin::Setting::Industry.where(parent_id: nil)
+  parent_industries = Admin::Setting::Industry.where(parent_id: nil)
+%>
 <%= form_for @job, :html => { :class => "form-horizontal job" } do |f| %>
   <% if @job.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -14,6 +17,11 @@
       </div>
     </div>
   <% end %>
+
+  <div class="control-group">
+    <label class='control-label'>首页广告职位</label>
+    <%= f.check_box :adjob %>
+  </div>
 
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
@@ -41,6 +49,38 @@
 
   <%= label_tag :cities, '已选城市', class: 'control-label' %>
   <%= hidden_field_tag :cities, @job.cities.map{ |c| c.name }.join(','), class: 'form-control tm-input tm-input-success', autocomplete: "off" %>
+
+
+
+  <div class="form-group">
+    <label class="col-lg-1 control-label pull-left">选择行业</label>
+    <div class="pull-left">
+      
+    <% if parent_industries.present? %>
+    <table class="table table-bordered">
+      <% parent_industries.each do |industry| %>
+      <tr>
+        <td>
+        <b><%= industry.name %></b>
+        </td>
+        <td>
+          <ul class="list-inline">
+            <% Admin::Setting::Industry.where(parent_id: industry.id).each do |child| %>
+            <li value="<%= industry.id %>" class="btn btn-default push-industry"><%= child.name %></li>  
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+
+    </div>
+  </div>
+
+  <label class="control-label">已选行业</label>
+  <%= hidden_field_tag :industries, @job.industries.map{ |c| c.name }.join(','), class: 'form-control industry-input tm-input-success', autocomplete: "off" %>
+
 
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
@@ -89,6 +129,7 @@
 
 <%= content_for :js do %>
   <script type="text/javascript">
+  //city
     var tagApi = $(".tm-input").tagsManager({
       prefilled: $(".tm-input").val().split(',')
     });
@@ -96,6 +137,15 @@
     $('.js-push').on('click', function(e) {
       e.preventDefault();
       tagApi.tagsManager("pushTag", $(this).text() );
+    });
+//indusry
+    var tagApiIndustry = $(".industry-input").tagsManager({
+      prefilled: $(".industry-input").val().split(',')
+    });
+
+    $('.push-industry').on('click', function(e) {
+      e.preventDefault();
+      tagApiIndustry.tagsManager("pushTag", $(this).text() );
     });
   </script>
 <% end %>

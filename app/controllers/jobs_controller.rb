@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_jobposter!, :except => [:show, :last]
   before_action :split_cities, only: [:update, :create]
+  before_action :split_industries, only: [:update, :create]
 
   # GET /jobs
   # GET /jobs.json
@@ -20,8 +21,8 @@ class JobsController < ApplicationController
   end
 
   def last
-    @job = Job.last
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
+    @jobs = Job.search_city(params[:city_name]).search_industry(params[:industry_id]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+    @job = @jobs[0]
     if params[:page]
       @page = params[:page]
     else
@@ -33,7 +34,8 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @jobs = Job.search_city(params[:city_name]).search(params[:keywords]).page(params[:page])
+    @jobs = Job.search_city(params[:city_name]).search_industry(params[:industry_id]).search(params[:keywords]).page(params[:page]).order(id: :desc)
+
     if params[:page]
       @page = params[:page]
     else
@@ -58,7 +60,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.jobposter_id = current_jobposter.id
     @job.cities = @cities if @cities.present?
-
+    @job.industries = @industries if @industries.present?
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -76,6 +78,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       @job.cities = @cities
+      @job.industries = @industries
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { render :show, status: :ok, location: @job }
@@ -105,13 +108,20 @@ class JobsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def job_params
-    params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :company_id, :jobposter_id)
+    params.require(:job).permit(:title, :salary, :description, :requirement, :comment, :end_date, :company_id, :jobposter_id, :adjob)
   end
 
   def split_cities
     @cities = []
     if params["hidden-cities"].present?
       @cities = Admin::Setting::City.where(name: params["hidden-cities"].split(","))
+    end
+  end
+
+  def split_industries
+    @industries = []
+    if params["hidden-industries"].present?
+      @industries = Admin::Setting::Industry.where(name: params["hidden-industries"].split(","))
     end
   end
 end

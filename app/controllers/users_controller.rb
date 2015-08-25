@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:delete_favorite_job]
   def index
     @users = initialize_grid(
-      User.where.not(active: false),
+      User.where.not(active: false).order(id: :desc),
       per_page: 20
     )
     #	binding.pry
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show_resumes
-    @resumes = Resume.where(user_id: params[:id])
+    @resumes = Resume.where(user_id: params[:id],active: true)
     render 'users/show_resumes.js.erb', layout: "admin"
   end
 

@@ -2,7 +2,7 @@
 <div class="jd-action">
       <%= link_to t('apply'), user_logined_path+"?job_id="+@job.id.to_s, remote: true , :class=>'btn btn-primary jd-apply' %>
       <%= link_to t('save'), save_favorite_job_path(job_id: @job.id), :class=>'jd-btn', remote: true, method: :post %>
-      <%= link_to t('share'), '#', :class=>'jd-btn' %>
+      <%#= link_to t('share'), '#', :class=>'jd-btn' %>
 </div>
 
 <h1><%=@job.title %></h1>
@@ -13,38 +13,45 @@
 		</span>
 		<%= @job.company.name if @job.company.present? %>
 	</div>
-	<div class="col-sm-4">
+	<div class="col-sm-3">
 		<span class="jd-val-desc">
 			<%= model_class.human_attribute_name(:salary) %>
 		</span>
 		<%= @job.salary %>
 	</div>
-	<div class="col-sm-3">
+	<div class="col-sm-4">
 		<span class="jd-val-desc">
 			<%= model_class.human_attribute_name(:admin_setting_city_id) %>
 		</span>
-		<%= @job.cities.map{ |c| c.name }.join(', ') %>
+<% if(I18n.locale == :en) %>
+<%= @job.cities.map{ |c| c.en }.join(', ') %>
+<% else %>
+<%= @job.cities.map{ |c| c.name }.join(', ') %>
+<% end %>	
 	</div>
 </div>
 <% if @job.description != "" %>
 <div class="jd-val-desc">
 	<%= model_class.human_attribute_name(:description) %>
 </div>
-<%= sanitize @job.description.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.description.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.requirement != "" %>
 <div class="jd-val-desc">
 	<%= model_class.human_attribute_name(:requirement) %>
 </div>
-<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.requirement.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.company.description != "" %>
 <div class="jd-val-desc">
 	<%= t('companyDetail') %>
 </div>
-<%= sanitize @job.company.description.gsub(/\n/, '<br/>') %>
+<div class='jd-value'>
+<%= sanitize @job.company.description.gsub(/\n/, '<br/>') %></div>
 <% end %>
 
 <% if @job.comment != "" %>
@@ -67,3 +74,12 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+/*
+	$(function(){
+		$(".jd-apply").prop('disabled', false);
+		$(".jd-action .jd-btn").removeAttr('disabled');
+		$("#jobApply2").removeAttr('disabled');
+	});
+*/	
+</script>

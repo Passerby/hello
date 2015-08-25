@@ -27,10 +27,10 @@
   g.column name: model_class.human_attribute_name(:company_id), model: 'Company', attribute: 'name' do |job|
     job.company.name
   end
-
-  g.column name: model_class.human_attribute_name(:jobposter_id), model: 'Jobposter', attribute: 'email' do |job|
-    job.jobposter.email
-  end
+#
+#  g.column name: model_class.human_attribute_name(:jobposter_id), model: 'Jobposter', attribute: 'email' do |job|
+#    job.jobposter.email
+#  end
 
   g.column name: '申请', model: 'Application', attribute: 'id', filter: false do |job|
     link_to job.applications.count, applications_path(job_id: job.id)
@@ -38,6 +38,10 @@
 
   g.column name: model_class.human_attribute_name(:created_at), attribute: 'created_at', filter: false do |job|
     job.created_at
+  end
+
+  g.column name: '广告', attribute: 'adjob', filter: false do |job|
+    job.adjob
   end
 
   g.column do |job|

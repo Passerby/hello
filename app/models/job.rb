@@ -9,6 +9,8 @@ class Job < ActiveRecord::Base
   has_many :applications
   has_many :job_cities
   has_many :cities, through: :job_cities
+  has_many :job_industries
+  has_many :industries, through: :job_industries
 
   validates :title, presence: true
   validates :salary, presence: true
@@ -21,6 +23,14 @@ class Job < ActiveRecord::Base
       all
     else
       eager_load(:job_cities).where(job_cities: { city_id: city_id })
+    end
+  end
+
+  def self.search_industry(industry_id)
+    if industry_id.blank?
+      all
+    else
+      eager_load(:job_industries).where(job_industries: { industry_id: industry_id })
     end
   end
 

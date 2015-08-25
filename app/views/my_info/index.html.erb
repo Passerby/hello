@@ -5,9 +5,51 @@
     <h3 class="panel-title"><%= link_to raw("<i class='fa-pencil fa'></i>"), edit_user_registration_path, class: 'pull-right' %> <%= t('my_info')  %></h3>
   </div>
   <div class="panel-body">
-  <div><%= current_user.name %></div>
-    <div><%= current_user.tel %></div>
-    <div><%= current_user.email %></div>
-    <div><%= current_user.job %></div>
+<form class="form-horizontal form">
+  <div class="form-group">
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= User.human_attribute_name(:name) %>
+    </label>
+    <div class="col-sm-5">
+    	<input value="<%= current_user.name %>" class='form-control' disabled>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= User.human_attribute_name(:tel) %>
+    </label>
+    <div class="col-sm-5">
+    <input value="<%= current_user.tel %>" class='form-control' disabled>
+
+    </div>
+  </div>
+  <div class="form-group">
+
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= User.human_attribute_name(:email) %>
+    </label>
+    
+    <div class="col-sm-5">
+    <input value="<%= current_user.email %>" class='form-control' disabled>
+    
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-4 control-label">
+      <span>*</span>
+      <%= User.human_attribute_name(:job) %>
+    </label>
+    <div class="col-sm-5">
+      <input value="<%= current_user.job %>" class='form-control' disabled>
+    </div>
+  </div>
+
+
+</form>
+
   </div>
 </div>

@@ -1,2 +1,49 @@
-<h1>P#about</h1>
-<p>Find me in app/views/p/about.html.erb</p>
+<div class="about-border">
+<div class="about-title"><div class="title"><%= t('navAbout')%></div></div>
+<div class="padding" style="padding-bottom:150px;">
+<% if(I18n.locale == :en) %>
+<%= render("p/about/en") %>
+<% else %>
+<%= render("p/about/zh") %>
+<% end %>
+</div>
+</div>
+<%= image_tag("about_env#{I18n.locale}.png", width:'100%', style:'margin-top:-100px') %>
+
+<div class="contact-border">
+<div class="contact-title"></div>
+<div class="padding">
+
+<div class="row">
+	<div class="col-sm-4">
+  <div class="title" style="margin-bottom:20px"><%= t('contactUs')%></div>
+		<%= content_tag(:div, t('tel'), class:'val-desc')%>
+            <%= content_tag(:div, t('telVal'), class:'val')%>
+            <%= content_tag(:div, t('email'), class:'val-desc')%>
+            <%= content_tag(:div, t('emailVal'), class:'val')%>
+            <%= content_tag(:div, t('addr'), class:'val-desc')%>
+            <%= content_tag(:div, t('addrVal'), class:'val')%>
+	</div>
+	<div class="col-sm-8">
+
+<%= render :partial => 'contacts/form' %>
+
+	</div>
+</div>
+</div>
+</div>
+
+
+<% content_for :top do %>
+<div class="about-banner-bg">
+<div class="about-banner banner"></div>
+</div>
+<% end %>
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content job-modal-content clearfix">
+    </div>
+  </div>
+</div>
+

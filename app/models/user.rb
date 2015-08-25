@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def hasResume
-  	resumes = Resume.where(user_id: self.id).count
+  	resumes = Resume.where(user_id: self.id, active:true).count
   	if resumes == 0
   		return false
   	else

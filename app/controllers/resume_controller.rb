@@ -27,7 +27,8 @@ class ResumeController < ApplicationController
 
   def destroy
     resume = Resume.find_by(id: params[:id], user_id: current_user.id)
-    if resume.destroy
+    resume.active = false
+    if resume.save
       render js: "location.reload();"
     else
       render js: "alert('delete resume job fail!');"

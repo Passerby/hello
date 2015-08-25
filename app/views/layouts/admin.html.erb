@@ -9,7 +9,7 @@
           <ul class="nav nav-sidebar">
             <li><%= link_to "职位", jobs_path %></li>
             <li><%= link_to "公司", companies_path %></li>
-            <li><%= link_to "用户", users_path %></li>
+            <li><%= link_to "求职用户", users_path %></li>
             <li><%= link_to "行业", admin_setting_industries_path %></li>
             <li><%= link_to "学历", admin_setting_educations_path %></li>
             <li><%= link_to "经验", admin_setting_experiences_path %></li>
@@ -21,6 +21,7 @@
             <% if current_jobposter.root_admin? %>
               <li><%= link_to "发布者", admin_setting_jobposters_path %></li>
             <% end %>
+            <li><%= link_to "用户留言", contacts_path %></li>
           </ul>
         </div>
         <div class="col-sm-10 main" style="float:right">
@@ -30,7 +31,8 @@
       </div>
     </div>
 
-<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "admin/admin" %>
+<%= javascript_include_tag "bottom/bottom" %>
   </body>
 </html>
 
