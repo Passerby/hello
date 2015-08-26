@@ -20,11 +20,7 @@
   <% end %>
 
   <div class="control-group">
-    <% if @jobposter.approved? %>
-      <%= check_box_tag :approved, 'yes', @jobposter.approved?, "disabled" => 'true' %>
-    <% else %>
-      <%= check_box_tag :approved, 'yes', @jobposter.approved? %>
-    <% end %>
+    <%= check_box_tag :approved, 'yes', @jobposter.approved? %>
     <label for="approved" class="control-label">认证管理员， 后台登录发布权限</label>
   </div>
 

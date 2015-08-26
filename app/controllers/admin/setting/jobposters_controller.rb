@@ -14,6 +14,8 @@ class Admin::Setting::JobpostersController < ApplicationController
   def update
     @jobposter = Jobposter.find(params[:id])
     if params[:approved] == 'yes'
+      @jobposter.approve
+    else
       @jobposter.dis_approve
     end
 
